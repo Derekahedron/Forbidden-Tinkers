@@ -1,9 +1,7 @@
 package derekahedron.forbiddentinkers.tinkers.modifiers;
 
 import derekahedron.forbiddentinkers.item.FTRarity;
-import com.google.common.collect.ImmutableMap;
 import derekahedron.forbiddentinkers.tinkers.DivineSlotsManager;
-import net.minecraft.tags.TagKey;
 import slimeknights.tconstruct.library.modifiers.*;
 import slimeknights.tconstruct.library.modifiers.hook.build.VolatileDataModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
@@ -12,9 +10,6 @@ import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.ToolDataNBT;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DivineModifier extends NoLevelsModifier implements VolatileDataModifierHook {
 

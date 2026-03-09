@@ -2,7 +2,6 @@ package derekahedron.forbiddentinkers.mixin;
 
 import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import derekahedron.forbiddentinkers.tinkers.DivineSlotsManager;
-import derekahedron.forbiddentinkers.tinkers.modifiers.DivineModifier;
 import derekahedron.forbiddentinkers.tinkers.modifiers.FTModifierIds;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Final;
@@ -11,7 +10,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import slimeknights.tconstruct.library.modifiers.ModifierManager;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.AbstractModifierRecipe;
 import slimeknights.tconstruct.library.tools.SlotType;

@@ -9,7 +9,6 @@ public class FTFluidInteractions {
 
     public static void initialize(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-
             FluidInteractionRegistry.addInteraction(FTFluidTypes.MOLTEN_CHAMPIUM.get(),
                     new FluidInteractionRegistry.InteractionInformation(
                             (level, currentPos, relativePos, currentState) ->

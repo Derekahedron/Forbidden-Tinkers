@@ -1,18 +1,11 @@
 package derekahedron.forbiddentinkers.util;
 
 import derekahedron.forbiddentinkers.ForbiddenTinkers;
-import derekahedron.forbiddentinkers.client.util.ClientProxy;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.server.ServerLifecycleHooks;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.UnaryOperator;
 

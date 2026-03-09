@@ -48,9 +48,5 @@ public class AddLootTablesModifier extends LootModifier {
                         ResourceLocation.CODEC.fieldOf("loot_table").forGetter(Entry::lootTable),
                         Codec.FLOAT.optionalFieldOf("chance", 1.0F).forGetter(Entry::chance)
                 ).apply(inst, Entry::new));
-
-        public Entry(ResourceLocation lootTable) {
-            this(lootTable, 1.0F);
-        }
     }
 }

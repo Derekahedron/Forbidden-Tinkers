@@ -1,7 +1,6 @@
 package derekahedron.forbiddentinkers.tinkers.modifiers;
 
 import derekahedron.forbiddentinkers.sound.FTSoundEvents;
-import derekahedron.forbiddentinkers.util.FTUtil;
 import derekahedron.mythictinkers.util.MTUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;

@@ -4,7 +4,6 @@ import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import derekahedron.forbiddentinkers.block.ChampiumForgeBlock;
 import derekahedron.forbiddentinkers.block.FTBlocks;
 import derekahedron.forbiddentinkers.item.FTItems;
-import derekahedron.mythictinkers.block.MTBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.*;
