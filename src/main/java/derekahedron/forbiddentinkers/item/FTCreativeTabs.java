@@ -13,7 +13,7 @@ public class FTCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ForbiddenTinkers.MOD_ID);
 
-    public static final RegistryObject<CreativeModeTab> TODO_TAB =
+    public static final RegistryObject<CreativeModeTab> FORBIDDEN_TINKERS_TAB =
             CREATIVE_MODE_TABS.register("forbidden_tinkers", () ->
                     CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.forbiddentinkers.forbidden_tinkers"))
