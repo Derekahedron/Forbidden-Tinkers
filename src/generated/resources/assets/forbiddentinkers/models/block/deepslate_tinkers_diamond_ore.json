@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "forbiddentinkers:block/deepslate_tinkers_diamond_ore_top",
+    "side": "forbiddentinkers:block/deepslate_tinkers_diamond_ore"
+  }
+}

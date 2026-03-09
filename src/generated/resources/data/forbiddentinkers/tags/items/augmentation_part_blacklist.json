@@ -1,0 +1,11 @@
+{
+  "values": [
+    "tconstruct:repair_kit",
+    "tconstruct:fake_ingot",
+    "tconstruct:fake_storage_block",
+    {
+      "id": "tinkers_things:large_repair_kit",
+      "required": false
+    }
+  ]
+}

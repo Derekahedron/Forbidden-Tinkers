@@ -1,0 +1,10 @@
+{
+  "forbiddentinkers:funny": ["forbiddentinkers:item/clown_nose", "tconstruct:gui/modifiers/book"],
+  "forbiddentinkers:wormhole": ["forbiddentinkers:gui/modifiers/wormhole"],
+  "forbiddentinkers:disposing": ["forbiddentinkers:gui/modifiers/disposing"],
+  "forbiddentinkers:heart_dropping": ["forbiddentinkers:gui/modifiers/heart_dropping"],
+  "forbiddentinkers:feasting": ["forbiddentinkers:gui/modifiers/feasting"],
+  "forbiddentinkers:overloaded": ["forbiddentinkers:item/forbidden_tome", "forbiddentinkers:item/forbidden_tome_overlay"],
+  "forbiddentinkers:augmentation": ["forbiddentinkers:item/tinkers_diamond", "tconstruct:gui/modifiers/book"],
+  "forbiddentinkers:champium_boon": ["forbiddentinkers:item/champium_ingot", "mythictinkers:gui/modifiers/boon"]
+}

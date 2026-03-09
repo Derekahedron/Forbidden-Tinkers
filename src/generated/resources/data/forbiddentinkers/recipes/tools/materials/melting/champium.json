@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "forbiddentinkers:champium",
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_champium"
+  },
+  "temperature": 2000
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "forbiddentinkers:bedrock_bricks"
+  },
+  "result": "forbiddentinkers:bedrock_brick_wall"
+}

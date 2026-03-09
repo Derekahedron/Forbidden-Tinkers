@@ -1,0 +1,14 @@
+{
+  "modifier_id": "forbiddentinkers:funny",
+  "text": [
+    {
+      "text": "Your tool honks when used."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Slotless",
+    "Each level adds another honk"
+  ]
+}

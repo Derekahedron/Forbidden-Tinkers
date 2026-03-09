@@ -1,0 +1,18 @@
+// 1.20.1	2026-03-08T20:02:33.399089	Forbidden Tinkers Block Tags
+844c926a1ae076052b0f06939d9d9e0b4c543ea7 data/forbiddentinkers/tags/blocks/bedrock_bricks.json
+1bf609cd3acd42eab20d9bec9d5105e422f5cf54 data/forbiddentinkers/tags/blocks/needs_champium_tool.json
+8ce2af46b28fff0beb2a439e2f81cd3034c274ff data/forge/tags/blocks/needs_netherite_tool.json
+468806abd6884c456d59af2efe79f4cef419b068 data/forge/tags/blocks/ores.json
+dd01097f07beb157f9761ca75ad491242b9da605 data/forge/tags/blocks/ores/champium.json
+e2311dd9fcb95ff0a173cb8115bee9710cb705ff data/forge/tags/blocks/ores/tinkers_diamond.json
+a8f065bbeb85192b498acadde816cfdb1493954e data/forge/tags/blocks/storage_blocks.json
+b9baddb5cbbd0337821af31d34c7697dc5bd4946 data/forge/tags/blocks/storage_blocks/champium.json
+df86578b294c1f8dd8bab8f938062904f4f28ef4 data/forge/tags/blocks/storage_blocks/raw_champium.json
+eb1d8db92746fe90eb691335a1762d837b998be6 data/forge/tags/blocks/storage_blocks/tinkers_diamond.json
+6f630dfee59ae30ea8bcb1ae091279c640d0c0f0 data/minecraft/tags/blocks/beacon_base_blocks.json
+3938ef5fbf409c1793db5869bf2aabf2abaf0951 data/minecraft/tags/blocks/mineable/pickaxe.json
+822f5eee6c35f585dc5fc6a519d33e041d0ff8f8 data/minecraft/tags/blocks/needs_iron_tool.json
+428f19e890202a5d2fa202bf595b28a5d73211f8 data/minecraft/tags/blocks/slabs.json
+4bc640aad04cac3691d9af98e37b3cc1956dc906 data/minecraft/tags/blocks/stairs.json
+b33b3e744d58374af090774fdd741bf8cabb0e30 data/minecraft/tags/blocks/walls.json
+296f1e3cfce5dbce3732327ba4f1c645fb917a25 data/tconstruct/tags/blocks/anvil_metal.json

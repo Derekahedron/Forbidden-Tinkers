@@ -1,0 +1,8 @@
+{
+  "max_level": 3,
+  "min_level": 1,
+  "modifier": "tconstruct:severing",
+  "slots": {
+    "upgrades": 1
+  }
+}

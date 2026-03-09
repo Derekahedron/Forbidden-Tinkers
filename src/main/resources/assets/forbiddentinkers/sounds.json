@@ -1,0 +1,32 @@
+{
+  "block.molten_champium.ambient": {
+    "sounds": [
+      "minecraft:liquid/lava"
+    ],
+    "subtitle": "subtitles.forbiddentinkers.block.molten_champium.ambient"
+  },
+  "block.molten_champium.pop": {
+    "sounds": [
+      "minecraft:liquid/lavapop"
+    ],
+    "subtitle": "subtitles.forbiddentinkers.block.molten_champium.ambient"
+  },
+  "modifier.funny.funny": {
+    "sounds": [
+      "forbiddentinkers:modifier/funny/funny"
+    ],
+    "subtitle": "subtitles.forbiddentinkers.modifier.funny.funny"
+  },
+  "modifier.funny.funnier": {
+    "sounds": [
+      "forbiddentinkers:modifier/funny/funnier"
+    ],
+    "subtitle": "subtitles.forbiddentinkers.modifier.funny.funnier"
+  },
+  "modifier.funny.funniest": {
+    "sounds": [
+      "forbiddentinkers:modifier/funny/funniest"
+    ],
+    "subtitle": "subtitles.forbiddentinkers.modifier.funny.funniest"
+  }
+}

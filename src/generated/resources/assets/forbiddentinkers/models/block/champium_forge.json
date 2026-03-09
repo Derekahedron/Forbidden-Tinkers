@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "forbiddentinkers:block/champium_forge_top",
+    "side": "forbiddentinkers:block/champium_forge"
+  }
+}

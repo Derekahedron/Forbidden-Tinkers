@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:wormhole",
+  "text": [
+    {
+      "text": "Harvested items are teleported directly to your inventory."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

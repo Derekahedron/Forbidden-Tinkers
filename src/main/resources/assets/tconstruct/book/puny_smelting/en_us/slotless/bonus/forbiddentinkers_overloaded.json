@@ -1,0 +1,14 @@
+{
+  "modifier_id": "forbiddentinkers:overloaded",
+  "text": [
+    {
+      "text": "Empower one aspect of your tool beyond what was previously thought possible."
+    }
+  ],
+  "effects": [
+    "Doubles the effects of upgrades of a given modifier",
+    "Only upgrades are effected, not traits",
+    "Can be re-applied to change the modifier",
+    "Single level"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 4.0,
+  "group": "tinkers_diamond",
+  "ingredient": {
+    "item": "forbiddentinkers:deepslate_tinkers_diamond_ore"
+  },
+  "result": "forbiddentinkers:tinkers_diamond"
+}

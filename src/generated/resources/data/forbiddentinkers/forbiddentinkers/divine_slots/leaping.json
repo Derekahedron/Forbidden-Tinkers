@@ -1,0 +1,8 @@
+{
+  "max_level": 1,
+  "min_level": 1,
+  "modifier": "tconstruct:leaping",
+  "slots": {
+    "abilities": 1
+  }
+}

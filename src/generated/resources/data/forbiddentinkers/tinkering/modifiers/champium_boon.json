@@ -1,0 +1,10 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "mythictinkers:modifier_material",
+      "material_id": "forbiddentinkers:champium"
+    }
+  ],
+  "tooltip_display": "tinker_station"
+}

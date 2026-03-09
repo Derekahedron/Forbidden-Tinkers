@@ -1,0 +1,14 @@
+{
+  "values": [
+    "forbiddentinkers:tinkers_diamond_block",
+    "forbiddentinkers:tinkers_diamond_ore",
+    "forbiddentinkers:deepslate_tinkers_diamond_ore",
+    "#forbiddentinkers:bedrock_bricks",
+    "forbiddentinkers:champium_forge",
+    "forbiddentinkers:champium_block",
+    "forbiddentinkers:champium_ore",
+    "forbiddentinkers:deepslate_champium_ore",
+    "forbiddentinkers:bedrock_champium_ore",
+    "forbiddentinkers:raw_champium_block"
+  ]
+}

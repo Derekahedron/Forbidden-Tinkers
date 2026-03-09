@@ -1,0 +1,8 @@
+{
+  "max_level": 2,
+  "min_level": 1,
+  "modifier": "tconstruct:step_up",
+  "slots": {
+    "upgrades": 1
+  }
+}

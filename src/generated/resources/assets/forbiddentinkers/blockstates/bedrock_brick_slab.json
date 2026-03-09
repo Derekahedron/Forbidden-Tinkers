@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "forbiddentinkers:block/bedrock_brick_slab"
+    },
+    "type=double": {
+      "model": "forbiddentinkers:block/bedrock_bricks"
+    },
+    "type=top": {
+      "model": "forbiddentinkers:block/bedrock_brick_slab_top"
+    }
+  }
+}

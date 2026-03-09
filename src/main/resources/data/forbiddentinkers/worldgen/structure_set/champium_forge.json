@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "forbiddentinkers:champium_forge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1016191403,
+    "spacing": 9,
+    "separation": 7
+  }
+}

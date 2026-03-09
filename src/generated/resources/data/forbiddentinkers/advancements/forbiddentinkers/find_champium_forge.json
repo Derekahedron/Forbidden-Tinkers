@@ -1,0 +1,42 @@
+{
+  "parent": "mythictinkers:mythictinkers/root",
+  "criteria": {
+    "champium_forge": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "forbiddentinkers:champium_forge"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.forbiddentinkers.find_champium_forge.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "forbiddentinkers:champium_forge"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.forbiddentinkers.find_champium_forge.title"
+    }
+  },
+  "requirements": [
+    [
+      "champium_forge"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

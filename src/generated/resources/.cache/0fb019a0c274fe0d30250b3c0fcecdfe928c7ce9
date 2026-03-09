@@ -1,0 +1,6 @@
+// 1.20.1	2026-03-08T20:02:33.396088	Forbidden Tinkers Material Recipes
+c91ae184f16d2c606a59a76ad88f6eda22349c3a data/forbiddentinkers/recipes/tools/materials/casting/champium.json
+e43f40c1a0feed756cc75068b694a7a703d8c002 data/forbiddentinkers/recipes/tools/materials/champium/block.json
+ee55974de657738132ac4b557233352bb636e5ed data/forbiddentinkers/recipes/tools/materials/champium/ingot.json
+c645138a289db95c0aa797a4325e35b5fb916b1b data/forbiddentinkers/recipes/tools/materials/champium/nugget.json
+fc5ccb60b3411d3684a4c8d16c8bd9e87ef1e458 data/forbiddentinkers/recipes/tools/materials/melting/champium.json

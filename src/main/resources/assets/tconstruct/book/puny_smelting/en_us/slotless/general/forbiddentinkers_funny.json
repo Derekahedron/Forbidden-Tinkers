@@ -1,0 +1,14 @@
+{
+  "modifier_id": "forbiddentinkers:funny",
+  "text": [
+    {
+      "text": "A little clowning around never hurt anybody."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Tool honks when performing actions",
+    "Multiple levels, each level adds another honk",
+    "Maximum of 3 levels"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "champium_ingot",
+  "key": {
+    "#": {
+      "item": "forbiddentinkers:champium_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "forbiddentinkers:champium_ingot"
+  },
+  "show_notification": true
+}

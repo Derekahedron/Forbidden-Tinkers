@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:augmentation",
+  "text": [
+    {
+      "text": "For those who just can't make up their mind."
+    }
+  ],
+  "effects": [
+    "Adds traits from a given material",
+    "Can be re-applied to change the material",
+    "Single level"
+  ]
+}

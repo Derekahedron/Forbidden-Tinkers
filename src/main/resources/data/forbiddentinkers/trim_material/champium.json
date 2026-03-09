@@ -1,0 +1,14 @@
+{
+  "asset_name": "forbiddentinkers_champium",
+  "description": {
+    "color": "#FFC13E",
+    "translate": "trim_material.tconstruct.format",
+    "with": [
+      {
+        "translate": "material.forbiddentinkers.champium"
+      }
+    ]
+  },
+  "ingredient": "forbiddentinkers:champium_ingot",
+  "item_model_index": 0.6
+}

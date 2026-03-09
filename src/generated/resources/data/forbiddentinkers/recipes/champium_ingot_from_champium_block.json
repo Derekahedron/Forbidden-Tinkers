@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "champium_ingot",
+  "ingredients": [
+    {
+      "item": "forbiddentinkers:champium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "forbiddentinkers:champium_ingot"
+  }
+}

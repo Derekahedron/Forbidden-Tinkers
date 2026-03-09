@@ -1,0 +1,32 @@
+{
+  "type": "forbiddentinkers:augmentation_modifier",
+  "allow_crystal": false,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermalconstruct"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "forge:difference",
+      "base": {
+        "tag": "tconstruct:parts"
+      },
+      "subtracted": {
+        "tag": "forbiddentinkers:augmentation_part_blacklist"
+      }
+    },
+    {
+      "item": "forbiddentinkers:tinkers_diamond"
+    }
+  ],
+  "result": {
+    "name": "forbiddentinkers:augmentation",
+    "value": "thermalconstruct:basalz_bone"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  },
+  "variant_formatter": "tconstruct:material"
+}

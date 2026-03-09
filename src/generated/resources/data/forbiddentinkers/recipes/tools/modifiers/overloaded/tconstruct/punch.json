@@ -1,0 +1,17 @@
+{
+  "type": "forbiddentinkers:overload_modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "forbiddentinkers:forbidden_tome"
+    }
+  ],
+  "result": {
+    "name": "forbiddentinkers:overloaded",
+    "value": "tconstruct:punch"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  },
+  "variant_formatter": "forbiddentinkers:modifier"
+}

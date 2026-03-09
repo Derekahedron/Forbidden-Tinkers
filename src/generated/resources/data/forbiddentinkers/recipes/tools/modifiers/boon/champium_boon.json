@@ -1,0 +1,30 @@
+{
+  "type": "mythictinkers:boon_modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    },
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    },
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    },
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    },
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    }
+  ],
+  "level": 1,
+  "result": "forbiddentinkers:champium_boon",
+  "slots": {
+    "boons": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

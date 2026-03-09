@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:augmentation",
+  "text": [
+    {
+      "text": "Grants traits from one chosen material. You can change which material is added by re-applying the recipe."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Single use",
+    "Slotless"
+  ]
+}

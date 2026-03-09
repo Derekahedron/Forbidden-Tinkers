@@ -1,0 +1,38 @@
+{
+  "parent": "forbiddentinkers:forbiddentinkers/find_champium_forge",
+  "criteria": {
+    "has_champium_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "forbiddentinkers:champium_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.forbiddentinkers.forge_champium_nugget.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "forbiddentinkers:champium_nugget"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.forbiddentinkers.forge_champium_nugget.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_champium_nugget"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

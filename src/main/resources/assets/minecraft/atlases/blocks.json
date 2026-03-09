@@ -1,0 +1,48 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:directory",
+      "prefix": "fluid/",
+      "source": "fluid"
+    },
+    {
+      "type": "minecraft:directory",
+      "prefix": "gui/modifiers/",
+      "source": "gui/modifiers"
+    },
+    {
+      "type": "minecraft:directory",
+      "prefix": "gui/tinker_pattern/",
+      "source": "gui/tinker_pattern"
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "palette_key": "minecraft:trims/color_palettes/trim_palette",
+      "permutations": {
+        "forbiddentinkers_champium": "forbiddentinkers:trims/color_palettes/champium"
+      },
+      "textures": [
+        "minecraft:trims/items/helmet_trim",
+        "minecraft:trims/items/chestplate_trim",
+        "minecraft:trims/items/leggings_trim",
+        "minecraft:trims/items/boots_trim"
+      ]
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:trims/items/helmet_trim"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:trims/items/chestplate_trim"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:trims/items/leggings_trim"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:trims/items/boots_trim"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "forbiddentinkers:overload_modifier",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tinkers_things"
+    }
+  ],
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "forbiddentinkers:forbidden_tome"
+    }
+  ],
+  "result": {
+    "name": "forbiddentinkers:overloaded",
+    "value": "tinkers_things:blinding"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  },
+  "variant_formatter": "forbiddentinkers:modifier"
+}

@@ -1,0 +1,43 @@
+{
+  "type": "forbiddentinkers:champium_forge",
+  "count": 512,
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "max_uses": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 64,
+      "min_inclusive": 32
+    }
+  },
+  "result": {
+    "item": "forbiddentinkers:champium_nugget"
+  }
+}

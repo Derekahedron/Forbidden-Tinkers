@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "forbiddentinkers:block/bedrock_bricks",
+    "side": "forbiddentinkers:block/bedrock_bricks",
+    "top": "forbiddentinkers:block/bedrock_bricks"
+  }
+}

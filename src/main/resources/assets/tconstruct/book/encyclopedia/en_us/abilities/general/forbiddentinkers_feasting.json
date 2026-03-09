@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:feasting",
+  "text": [
+    {
+      "text": "When held or worn, picked up XP is used to restore hunger."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

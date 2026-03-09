@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:heart_dropping",
+  "text": [
+    {
+      "text": "Best not to think about where the hearts come from."
+    }
+  ],
+  "effects": [
+    "Enemies sometimes drop hearts which heal you",
+    "Multiple levels, each level adds a 10% chance of dropping a heart",
+    "Requires 1 upgrade slot per level"
+  ]
+}

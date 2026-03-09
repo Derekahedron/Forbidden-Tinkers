@@ -1,0 +1,21 @@
+{
+  "modifier.forbiddentinkers": {
+    "funny": "#E4024E",
+    "heart_dropping": "#FF1313",
+    "feasting": "#C88600",
+    "wormhole": "#5B41B6",
+    "overloaded": "#E4B47D",
+    "disposing": "#7D8D75",
+    "augmentation": "#FFD7EE",
+    "divine": "#FFC13E",
+    "champium_boon": "#FFC13E"
+  },
+
+  "material.forbiddentinkers": {
+    "champium": "#FFC13E"
+  },
+
+  "harvest_tier.forbiddentinkers": {
+    "champium": "#FFC13E"
+  }
+}

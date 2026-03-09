@@ -1,0 +1,8 @@
+{
+  "max_level": 3,
+  "min_level": 1,
+  "modifier": "tconstruct:depth_strider",
+  "slots": {
+    "upgrades": 1
+  }
+}

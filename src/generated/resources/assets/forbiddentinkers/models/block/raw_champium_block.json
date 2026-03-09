@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "forbiddentinkers:block/raw_champium_block"
+  }
+}

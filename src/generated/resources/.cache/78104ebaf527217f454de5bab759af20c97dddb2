@@ -1,0 +1,7 @@
+// 1.20.1	2026-03-08T20:02:33.4000884	Forbidden Tinkers Modifier Tags
+9daa54bd5b90a88519f5ec61208f6186acfad330 data/mythictinkers/tinkering/tags/modifiers/boons.json
+df5ddf21cf1ac6062cf87c11ab8a5ed33ce8b727 data/tconstruct/tinkering/tags/modifiers/abilities/general.json
+2f52725e5ff7ca2ea5f7ddc41e76bd9cf5a32e92 data/tconstruct/tinkering/tags/modifiers/extract_blacklist/tools.json
+2f52725e5ff7ca2ea5f7ddc41e76bd9cf5a32e92 data/tconstruct/tinkering/tags/modifiers/slotless/bonus.json
+5953ec11a1c4cb532138719ce51a8da37645da91 data/tconstruct/tinkering/tags/modifiers/slotless/general.json
+0ac54eb19173df00ee119f322a5c017ca4ffddd0 data/tconstruct/tinkering/tags/modifiers/upgrades/general.json

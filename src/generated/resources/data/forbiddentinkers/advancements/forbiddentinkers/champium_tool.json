@@ -1,0 +1,40 @@
+{
+  "parent": "forbiddentinkers:forbiddentinkers/forge_champium_nugget",
+  "criteria": {
+    "craft_champium_tool": {
+      "conditions": {
+        "items": [
+          {
+            "type": "tconstruct:tool_stack",
+            "predicate": {
+              "type": "tconstruct:has_material",
+              "material": "forbiddentinkers:champium"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.forbiddentinkers.champium_tool.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "forbiddentinkers:champium_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.forbiddentinkers.champium_tool.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_champium_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,8 @@
+{
+  "max_level": 5,
+  "min_level": 1,
+  "modifier": "tconstruct:bane_of_sssss",
+  "slots": {
+    "upgrades": 1
+  }
+}

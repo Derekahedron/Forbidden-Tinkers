@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forbiddentinkers:champium_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "forbiddentinkers:champium_nugget"
+  }
+}

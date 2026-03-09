@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_champium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "forbiddentinkers:champium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "forbiddentinkers:champium_ingot_from_smelting_champium_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_champium_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "forbiddentinkers:champium_ingot_from_smelting_champium_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

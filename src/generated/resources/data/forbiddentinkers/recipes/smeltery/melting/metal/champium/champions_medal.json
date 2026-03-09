@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "forbiddentinkers:champions_medal"
+  },
+  "result": {
+    "amount": 180,
+    "fluid": "forbiddentinkers:molten_champium"
+  },
+  "temperature": 2000,
+  "time": 131
+}

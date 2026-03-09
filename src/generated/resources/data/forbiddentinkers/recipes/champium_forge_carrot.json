@@ -1,0 +1,50 @@
+{
+  "type": "forbiddentinkers:champium_forge",
+  "conditions": [
+    {
+      "type": "forge:tag_empty",
+      "tag": "forge:storage_blocks/carrot"
+    }
+  ],
+  "count": 512,
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "max_uses": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 12,
+      "min_inclusive": 8
+    }
+  },
+  "result": {
+    "item": "forbiddentinkers:champium_nugget"
+  },
+  "weight": 4
+}

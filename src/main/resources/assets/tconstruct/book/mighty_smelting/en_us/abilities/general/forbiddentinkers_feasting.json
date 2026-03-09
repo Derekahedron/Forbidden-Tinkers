@@ -1,0 +1,15 @@
+{
+  "modifier_id": "forbiddentinkers:feasting",
+  "text": [
+    {
+      "text": "Work without being slowed down by menial things like eating."
+    }
+  ],
+  "effects": [
+    "Collected xp is used to restore hunger",
+    "When at full hunger, xp is collected normally",
+    "Only when tool is worn or held.",
+    "Single level",
+    "Requires 1 ability slot"
+  ]
+}

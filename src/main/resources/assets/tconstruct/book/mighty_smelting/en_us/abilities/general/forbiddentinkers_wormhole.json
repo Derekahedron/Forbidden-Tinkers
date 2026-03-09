@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:wormhole",
+  "text": [
+    {
+      "text": "The ultimate dibs."
+    }
+  ],
+  "effects": [
+    "Harvested items are teleported directly to your inventory",
+    "Single level",
+    "Requires 1 ability slot"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "modifier_id": "forbiddentinkers:heart_dropping",
+  "text": [
+    {
+      "text": "Enemies have a chance of dropping hearts, which heal you when picked up."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Requires 1 upgrade slot per level",
+    "Each level adds a 10% chance of dropping a heart"
+  ]
+}

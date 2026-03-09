@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 4.0,
+  "group": "champium_ingot",
+  "ingredient": {
+    "item": "forbiddentinkers:raw_champium"
+  },
+  "result": "forbiddentinkers:champium_ingot"
+}

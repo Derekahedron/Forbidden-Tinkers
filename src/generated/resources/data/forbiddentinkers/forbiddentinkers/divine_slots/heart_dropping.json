@@ -1,0 +1,8 @@
+{
+  "max_level": 3,
+  "min_level": 1,
+  "modifier": "forbiddentinkers:heart_dropping",
+  "slots": {
+    "upgrades": 1
+  }
+}

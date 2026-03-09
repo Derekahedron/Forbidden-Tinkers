@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "state=active": {
+      "model": "forbiddentinkers:block/champium_forge_on"
+    },
+    "state=broken": {
+      "model": "forbiddentinkers:block/champium_forge_broken"
+    },
+    "state=inactive": {
+      "model": "forbiddentinkers:block/champium_forge"
+    }
+  }
+}

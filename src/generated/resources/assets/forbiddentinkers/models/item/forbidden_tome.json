@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "forbiddentinkers:item/forbidden_tome",
+    "layer1": "forbiddentinkers:item/forbidden_tome_overlay"
+  }
+}

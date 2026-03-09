@@ -1,0 +1,15 @@
+// 1.20.1	2026-03-08T20:02:33.4010883	Forbidden Tinkers Smeltery Recipes
+10b814a4b6371c8c9de0c9aa49d9c556f7497edb data/forbiddentinkers/recipes/smeltery/casting/metal/champium/block.json
+6a57036d28e20a61a6908a8336f8f759fa5a45e8 data/forbiddentinkers/recipes/smeltery/casting/metal/champium/ingot_gold_cast.json
+0708582debb40646b589611de17f484dab004ece data/forbiddentinkers/recipes/smeltery/casting/metal/champium/ingot_sand_cast.json
+1a89ffd4802b11b67d94749d34382f57cb8bded7 data/forbiddentinkers/recipes/smeltery/casting/metal/champium/nugget_gold_cast.json
+30a75ce20e9094607e0a636f5cc8c38ffd8ed979 data/forbiddentinkers/recipes/smeltery/casting/metal/champium/nugget_sand_cast.json
+5bb3d29554240b3ca5828ae3de4706d84fa44e78 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/block.json
+c3fb0525e4d434f433e8c50f9efadabdcd5e7cb5 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/champions_medal.json
+a17ac2904d9d0724c594be9126dbdc98f13ad8f0 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/ingot.json
+13804cabb366f1285288600719b85c34f14b33be data/forbiddentinkers/recipes/smeltery/melting/metal/champium/nugget.json
+18fcd11de50149ee2f4ccf2acf31d26d855d75e2 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/ore_dense.json
+3d481930813df7fd9ff01e3fe4ca2d6a885e7776 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/ore_singular.json
+86a658596f592c5a50d6ccef0627fb09d8a3aea5 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/ore_sparse.json
+3490d258ca67ca96c93030ca2483263acaa2f02f data/forbiddentinkers/recipes/smeltery/melting/metal/champium/raw.json
+d122ed1d32315889dcb051408f5789f1ef718de9 data/forbiddentinkers/recipes/smeltery/melting/metal/champium/raw_block.json

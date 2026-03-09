@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:overloaded",
+  "text": [
+    {
+      "text": "Doubles the effects of upgrades of a chosen modifier. Only effective on modifiers added through upgrades and not traits."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Single use",
+    "Slotless"
+  ]
+}

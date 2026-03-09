@@ -1,0 +1,9 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "forbiddentinkers:swappable_overload_modifier"
+    }
+  ],
+  "tooltip_display": "always"
+}

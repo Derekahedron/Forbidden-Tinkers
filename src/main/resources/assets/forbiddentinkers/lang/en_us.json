@@ -1,0 +1,118 @@
+{
+  "language.name": "English",
+  "language.region": "United States",
+  "language.code": "en_us",
+
+  "item.forbiddentinkers.clown_nose": "Clown Nose",
+  "item.forbiddentinkers.heart": "Heart",
+
+  "item.forbiddentinkers.forbidden_tome": "Forbidden Tome",
+  "item.forbiddentinkers.forbidden_tome.description": "Can be added to a tool to double the level of %1$s upgrades",
+  "item.forbiddentinkers.forbidden_tome.description.modifier_id": "Modifier ID: %1$s",
+  "item.forbiddentinkers.forbidden_tome.description.missing": "Missing or invalid NBT defining the modifier type",
+
+  "block.forbiddentinkers.tinkers_diamond_block": "Block of Tinkers Diamond",
+  "block.forbiddentinkers.tinkers_diamond_ore": "Tinkers Diamond Ore",
+  "block.forbiddentinkers.deepslate_tinkers_diamond_ore": "Deepslate Tinkers Diamond Ore",
+  "item.forbiddentinkers.tinkers_diamond": "Tinkers Diamond",
+
+  "block.forbiddentinkers.bedrock_bricks": "Bedrock Bricks",
+  "block.forbiddentinkers.bedrock_brick_stairs": "Bedrock Brick Stairs",
+  "block.forbiddentinkers.bedrock_brick_slab": "Bedrock Brick Slab",
+  "block.forbiddentinkers.bedrock_brick_wall": "Bedrock Brick Wall",
+
+  "block.forbiddentinkers.champium_forge": "Champium Forge",
+  "block.forbiddentinkers.champium_block": "Block of Champium",
+  "block.forbiddentinkers.champium_ore": "Champium Ore",
+  "block.forbiddentinkers.deepslate_champium_ore": "Deepslate Champium Ore",
+  "block.forbiddentinkers.bedrock_champium_ore": "Bedrock Champium Ore",
+  "block.forbiddentinkers.raw_champium_block": "Block of Raw Champium",
+  "item.forbiddentinkers.raw_champium": "Raw Champium",
+  "item.forbiddentinkers.champium_nugget": "Champium Nugget",
+  "item.forbiddentinkers.champium_ingot": "Champium Ingot",
+  "block.forbiddentinkers.molten_champium": "Molten Champium",
+  "item.forbiddentinkers.molten_champium_bucket": "Molten Champium Bucket",
+  "item.forbiddentinkers.champions_medal": "Champion's Medal",
+
+
+  "container.forbiddentinkers.champium_forge": "Champium Forge",
+
+
+  "fluid_type.forbiddentinkers.molten_champium": "Molten Champium",
+
+
+  "fluid.forbiddentinkers.molten_champium": "Molten Champium",
+  "fluid.forbiddentinkers.flowing_molten_champium": "Flowing Molten Champium",
+
+
+  "subtitles.forbiddentinkers.modifier.funny.funny": "Clown Honks",
+  "subtitles.forbiddentinkers.modifier.funny.funnier": "Clown Honks Twice",
+  "subtitles.forbiddentinkers.modifier.funny.funniest": "Clown Honks Thrice",
+  "subtitles.forbiddentinkers.block.molten_champium.ambient": "Molten Champium pops",
+
+
+  "death.attack.forbiddentinkers.cursed_bundle": "%1$s removed too many items from a cursed bundle",
+  "death.attack.forbiddentinkers.molten_champium": "%1$s tried to swim in molten champium",
+  "death.attack.forbiddentinkers.molten_champium.player": "%1$s tried to swim in molten champium to escape %2$s",
+
+
+  "material.forbiddentinkers.champium": "Champium",
+  "material.forbiddentinkers.champium.flavor": "Just holding this material makes you feel accomplished",
+  "material.forbiddentinkers.champium.encyclopedia": "The cream of the crop. Champium is the key to making ultimate tools",
+
+
+  "modifier.forbiddentinkers.funny": "Funny",
+  "modifier.forbiddentinkers.funny.1": "Funny",
+  "modifier.forbiddentinkers.funny.2": "Funnier",
+  "modifier.forbiddentinkers.funny.3": "Funniest",
+  "modifier.forbiddentinkers.funny.flavor": "Comedic!",
+  "modifier.forbiddentinkers.funny.description": "Tool honks when performing actions",
+
+  "modifier.forbiddentinkers.heart_dropping": "Heart Dropping",
+  "modifier.forbiddentinkers.heart_dropping.flavor": "Heartless!",
+  "modifier.forbiddentinkers.heart_dropping.description": "Enemies drop hearts when slain that heal you",
+
+  "modifier.forbiddentinkers.disposing": "Disposing",
+  "modifier.forbiddentinkers.disposing.flavor": "Throw Away!",
+  "modifier.forbiddentinkers.disposing.description": "Certain items like stone are not dropped when harvested by this tool.",
+
+  "modifier.forbiddentinkers.feasting": "Feasting",
+  "modifier.forbiddentinkers.feasting.flavor": "Delectable!",
+  "modifier.forbiddentinkers.feasting.description": "Tool uses XP to restore hunger when held or worn",
+
+  "modifier.forbiddentinkers.overloaded": "Overloaded",
+  "modifier.forbiddentinkers.overloaded.flavor": "Next Level!",
+  "modifier.forbiddentinkers.overloaded.description": "Tool doubles the effects of upgrades for the given modifier",
+
+  "modifier.forbiddentinkers.augmentation": "Augmentation",
+  "modifier.forbiddentinkers.augmentation.flavor": "Forever Changed!",
+  "modifier.forbiddentinkers.augmentation.description": "Tool has the added traits of the given material",
+
+  "modifier.forbiddentinkers.wormhole": "Wormhole",
+  "modifier.forbiddentinkers.wormhole.flavor": "Warp speed!",
+  "modifier.forbiddentinkers.wormhole.description": "Harvested items are teleported directly to your inventory",
+
+  "modifier.forbiddentinkers.divine": "Divine",
+  "modifier.forbiddentinkers.divine.flavor": "All Powerful!",
+  "modifier.forbiddentinkers.divine.description": "Tool only uses one slot for multi-level modifiers (that have a cap)",
+  "modifier.forbiddentinkers.champium_boon": "Champium Boon",
+  "modifier.forbiddentinkers.champium_boon.flavor": "Legendary!",
+  "modifier.forbiddentinkers.champium_boon.description": "Your tool has the traits of Champium",
+
+
+  "stat.tconstruct.harvest_tier.forbiddentinkers.champium": "Champium",
+
+
+  "jei.forbiddentinkers.champium_forge.count": "Must be consumed %1$s times",
+
+
+  "advancements.forbiddentinkers.find_champium_forge.title": "The Power of the Sun",
+  "advancements.forbiddentinkers.find_champium_forge.description": "Find a Champium Forge",
+  "advancements.forbiddentinkers.forge_champium_nugget.title": "In the Palm of my Hand",
+  "advancements.forbiddentinkers.forge_champium_nugget.description": "Create a Champium Nugget from the Champium Forge",
+  "advancements.forbiddentinkers.champium_tool.title": "Forbidden Tinkering",
+  "advancements.forbiddentinkers.champium_tool.description": "Make a tool out of Champium",
+
+
+  "itemGroup.forbiddentinkers.forbidden_tinkers": "Forbidden Tinkers"
+}

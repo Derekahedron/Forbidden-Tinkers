@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "derekahedron.forbiddentinkers.mixin",
+  "refmap": "forbiddentinkers.refmap.json",
+  "mixins": [
+    "AbstractModifierRecipeMixin",
+    "BlockBehaviorMixin",
+    "ItemEntityAccessor"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

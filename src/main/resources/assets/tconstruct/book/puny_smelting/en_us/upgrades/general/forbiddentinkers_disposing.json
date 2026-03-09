@@ -1,0 +1,13 @@
+{
+  "modifier_id": "forbiddentinkers:disposing",
+  "text": [
+    {
+      "text": "Inventory clogged? No problem!"
+    }
+  ],
+  "effects": [
+    "Removes annoying items from drops",
+    "Single level",
+    "Requires 1 upgrade slot"
+  ]
+}

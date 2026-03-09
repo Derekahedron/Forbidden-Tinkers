@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:nuggets/champium"
+  },
+  "result": {
+    "amount": 10,
+    "tag": "forge:molten_champium"
+  },
+  "temperature": 2000,
+  "time": 31
+}

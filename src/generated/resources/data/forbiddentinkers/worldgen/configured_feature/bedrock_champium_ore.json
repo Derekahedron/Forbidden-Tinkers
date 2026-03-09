@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:replace_single_block",
+  "config": {
+    "targets": [
+      {
+        "state": {
+          "Name": "forbiddentinkers:bedrock_champium_ore",
+          "Properties": {
+            "unbreakable": "true"
+          }
+        },
+        "target": {
+          "block": "minecraft:bedrock",
+          "predicate_type": "minecraft:block_match"
+        }
+      }
+    ]
+  }
+}
