@@ -25,7 +25,7 @@ public class DivineModifier extends NoLevelsModifier implements VolatileDataModi
         RarityModule.setRarity(volatileData, FTRarity.CHAMPIUM);
 
         for (ModifierEntry entry : context.getUpgrades()) {
-            for (SlotType.SlotCount slots : DivineSlotsManager.getAddedSlots2(entry.getId(), entry.getLevel())) {
+            for (SlotType.SlotCount slots : DivineSlotsManager.getAddedSlots(entry.getId(), entry.getLevel())) {
                 volatileData.addSlots(slots.type(), slots.count());
             }
         }

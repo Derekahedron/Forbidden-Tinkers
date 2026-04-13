@@ -1,0 +1,8 @@
+{
+  "max_level": 3,
+  "min_level": 1,
+  "modifier": "constructs_casting:nature_upgrade",
+  "slots": {
+    "upgrades": 1
+  }
+}

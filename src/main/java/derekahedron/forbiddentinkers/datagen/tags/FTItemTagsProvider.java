@@ -1,11 +1,14 @@
 package derekahedron.forbiddentinkers.datagen.tags;
 
+import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
+import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import derekahedron.forbiddentinkers.item.FTItemTags;
 import derekahedron.forbiddentinkers.item.FTItems;
 import derekahedron.forbiddentinkers.util.CompatUtil;
 import derekahedron.forbiddentinkers.util.ForgeTags;
 import derekahedron.invexp.item.InvExpItemTags;
+import derekahedron.mythictinkers.item.MTItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -145,6 +148,7 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .add(Items.GRAVEL)
                 .add(Items.SAND)
                 .add(Items.RED_SAND)
+                .add(Items.MUD)
                 .add(Items.NETHERRACK)
                 .add(Items.NETHER_BRICK)
                 .add(Items.BLACKSTONE)
@@ -152,6 +156,7 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .add(Items.MAGMA_BLOCK)
                 .add(Items.SOUL_SAND)
                 .add(Items.SOUL_SOIL)
+                .add(Items.END_STONE)
                 .add(Items.ROTTEN_FLESH)
                 .add(Items.BONE)
                 .add(Items.STRING)
@@ -203,6 +208,46 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .add(Items.BOW)
                 .add(Items.CROSSBOW)
                 .add(Items.SHIELD)
+                .add(ACBlockRegistry.GALENA.get().asItem())
+                .add(ACBlockRegistry.ENERGIZED_GALENA_AZURE.get().asItem())
+                .add(ACBlockRegistry.ENERGIZED_GALENA_SCARLET.get().asItem())
+                .add(ACBlockRegistry.ENERGIZED_GALENA_NEUTRAL.get().asItem())
+                .add(MTItems.BYZANTIUM_ENERGIZED_GALENA.get())
+                .add(ACBlockRegistry.GALENA_SPIRE.get().asItem())
+                .add(ACBlockRegistry.METAL_SWARF.get().asItem())
+                .add(ACBlockRegistry.LIMESTONE.get().asItem())
+                .add(ACBlockRegistry.RADROCK.get().asItem())
+                .add(ACBlockRegistry.ACIDIC_RADROCK.get().asItem())
+                .add(ACBlockRegistry.ABYSSMARINE.get().asItem())
+                .add(ACBlockRegistry.MUCK.get().asItem())
+                .add(ACItemRegistry.GUANO.get().asItem())
+                .add(ACBlockRegistry.GUANO_BLOCK.get().asItem())
+                .add(ACItemRegistry.GUMBALL_PILE.get().asItem())
+                .add(ACBlockRegistry.GUANOSTONE.get().asItem())
+                .add(ACBlockRegistry.COPROLITH.get().asItem())
+                .add(ACBlockRegistry.POROUS_COPROLITH.get().asItem())
+                .add(ACBlockRegistry.PEERING_COPROLITH.get().asItem())
+                .add(ACBlockRegistry.CAKE_LAYER.get().asItem())
+                .add(ACBlockRegistry.BLOCK_OF_CHOCOLATE.get().asItem())
+                .add(ACBlockRegistry.BLOCK_OF_FROSTED_CHOCOLATE.get().asItem())
+                .add(ACBlockRegistry.WHITE_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.ORANGE_RADON_LAMP.get().asItem())
+                .add(ACBlockRegistry.MAGENTA_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.LIGHT_BLUE_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.YELLOW_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.LIME_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.PINK_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.GRAY_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.LIGHT_BLUE_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.CYAN_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.PURPLE_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.BLUE_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.BROWN_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.GREEN_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.RED_ROCK_CANDY.get().asItem())
+                .add(ACBlockRegistry.BLACK_ROCK_CANDY.get().asItem())
+                .addOptional(CompatUtil.betterEnd("sulphuric_rock"))
+                .addOptional(CompatUtil.betterEnd("brimstone"))
                 .addOptional(CompatUtil.create("asurine"))
                 .addOptional(CompatUtil.create("crimsite"))
                 .addOptional(CompatUtil.create("limestone"))
@@ -210,6 +255,7 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .addOptional(CompatUtil.create("scoria"))
                 .addOptional(CompatUtil.create("scorchia"))
                 .addOptional(CompatUtil.create("veridium"))
-                .addOptional(CompatUtil.enderIO("broken_spawner"));
+                .addOptional(CompatUtil.enderIO("broken_spawner"))
+                .addOptional(CompatUtil.scorchedGuns("phosphorite"));
     }
 }

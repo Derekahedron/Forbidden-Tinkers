@@ -62,6 +62,9 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, ModifierIds.featherFalling, 1, 2);
         registerUpgrade(context, TinkerModifiers.soulspeed.getId(), 1, 3);
         registerUpgrade(context, ModifierIds.returning, 1, 4);
+        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("expedient")), 1, 3);
+        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("swiftcasting")), 1, 3);
+        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("slot_improvement")), 1, 6);
 
         registerAbility(context, ModifierIds.reach, 1, 2);
         registerAbility(context, ModifierIds.strength, 1, 2);
@@ -69,6 +72,16 @@ public class FTDivineSlotsProvider {
         registerAbility(context, ModifierIds.doubleJump, 1, 2);
         registerAbility(context, ModifierIds.boundless, 1, 5);
         registerAbility(context, ModifierIds.leaping, 1, 1);
+
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("ice_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("fire_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("lightning_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("ender_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("holy_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("evocation_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("blood_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("nature_upgrade")));
+        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("mana_upgrade")));
     }
 
     public static void register(
@@ -96,5 +109,14 @@ public class FTDivineSlotsProvider {
             int minLevel,
             int maxLevel) {
         register(context, modifierId, minLevel, maxLevel, new SlotType.SlotCount(SlotType.ABILITY, 1));
+    }
+
+    public static void registerElementalMagic(
+            BootstapContext<DivineSlots> context,
+            ModifierId modifierId) {
+        registerUpgrade(context, modifierId, 1, 3);
+        context.register(
+                ResourceKey.create(FTRegistryKeys.DIVINE_SLOTS, FTUtil.location(modifierId.getPath() + "_affinity")),
+                new DivineSlots(modifierId, 4, 5, new SlotType.SlotCount(SlotType.getOrCreate("affinity"), 1)));
     }
 }

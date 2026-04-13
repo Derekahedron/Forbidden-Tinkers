@@ -1,0 +1,8 @@
+{
+  "max_level": 5,
+  "min_level": 4,
+  "modifier": "constructs_casting:evocation_upgrade",
+  "slots": {
+    "affinity": 1
+  }
+}

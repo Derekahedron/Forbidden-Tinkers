@@ -1,0 +1,23 @@
+{
+  "type": "forbiddentinkers:overload_modifier",
+  "allow_crystal": false,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "constructs_casting"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "forbiddentinkers:forbidden_tome"
+    }
+  ],
+  "result": {
+    "name": "forbiddentinkers:overloaded",
+    "value": "constructs_casting:ender_upgrade"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  },
+  "variant_formatter": "forbiddentinkers:modifier"
+}

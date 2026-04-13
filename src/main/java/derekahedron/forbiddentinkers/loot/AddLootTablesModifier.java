@@ -26,12 +26,13 @@ public class AddLootTablesModifier extends LootModifier {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         for (Entry entry : lootTables) {
             if (entry.chance >= 1 || context.getRandom().nextFloat() < entry.chance) {
                 LootTable table = context.getResolver().getLootTable(entry.lootTable);
-                table.getRandomItemsRaw(context, generatedLoot::add);
+                table.getRandomItems(
+                        new LootContext.Builder(context).withQueriedLootTableId(entry.lootTable).create(null),
+                        generatedLoot::add);
             }
         }
         return generatedLoot;

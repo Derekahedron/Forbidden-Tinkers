@@ -8,6 +8,10 @@ public class CompatUtil {
         return new ResourceLocation("forge", id);
     }
 
+    public static ResourceLocation betterEnd(String id) {
+        return new ResourceLocation("betterend", id);
+    }
+
     public static ResourceLocation blueSkiesTcon(String id) {
         return new ResourceLocation("blue_skies_tcon", id);
     }
@@ -16,8 +20,16 @@ public class CompatUtil {
         return new ResourceLocation("create", id);
     }
 
+    public static ResourceLocation constructsCasting(String id) {
+        return new ResourceLocation("constructs_casting", id);
+    }
+
     public static ResourceLocation enderIO(String id) {
         return new ResourceLocation("enderio", id);
+    }
+
+    public static ResourceLocation scorchedGuns(String id) {
+        return new ResourceLocation("scguns", id);
     }
 
     public static ResourceLocation thermalConstruct(String id) {

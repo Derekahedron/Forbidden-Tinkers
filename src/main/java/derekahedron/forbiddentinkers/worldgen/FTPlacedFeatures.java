@@ -38,7 +38,7 @@ public class FTPlacedFeatures {
                 context.lookup(Registries.CONFIGURED_FEATURE)
                         .getOrThrow(FTConfiguredFeatures.TINKERS_DIAMOND_ORE),
                 List.of(
-                        CountPlacement.of(2),
+                        CountPlacement.of(1),
                         HeightRangePlacement.triangle(
                                 VerticalAnchor.aboveBottom(-48),
                                 VerticalAnchor.aboveBottom(48)),

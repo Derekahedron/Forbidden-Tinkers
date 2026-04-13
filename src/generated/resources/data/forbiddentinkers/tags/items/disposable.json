@@ -12,6 +12,7 @@
     "minecraft:gravel",
     "minecraft:sand",
     "minecraft:red_sand",
+    "minecraft:mud",
     "minecraft:netherrack",
     "minecraft:nether_brick",
     "minecraft:blackstone",
@@ -19,6 +20,7 @@
     "minecraft:magma_block",
     "minecraft:soul_sand",
     "minecraft:soul_soil",
+    "minecraft:end_stone",
     "minecraft:rotten_flesh",
     "minecraft:bone",
     "minecraft:string",
@@ -70,6 +72,52 @@
     "minecraft:bow",
     "minecraft:crossbow",
     "minecraft:shield",
+    "alexscaves:galena",
+    "alexscaves:energized_galena_azure",
+    "alexscaves:energized_galena_scarlet",
+    "alexscaves:energized_galena_neutral",
+    "mythictinkers:byzantium_energized_galena",
+    "alexscaves:galena_spire",
+    "alexscaves:metal_swarf",
+    "alexscaves:limestone",
+    "alexscaves:radrock",
+    "alexscaves:acidic_radrock",
+    "alexscaves:abyssmarine",
+    "alexscaves:muck",
+    "alexscaves:guano",
+    "alexscaves:guano_block",
+    "alexscaves:gumball_pile",
+    "alexscaves:guanostone",
+    "alexscaves:coprolith",
+    "alexscaves:porous_coprolith",
+    "alexscaves:peering_coprolith",
+    "alexscaves:cake_layer",
+    "alexscaves:block_of_chocolate",
+    "alexscaves:block_of_frosted_chocolate",
+    "alexscaves:rock_candy_white",
+    "alexscaves:radon_lamp_orange",
+    "alexscaves:rock_candy_magenta",
+    "alexscaves:rock_candy_light_blue",
+    "alexscaves:rock_candy_yellow",
+    "alexscaves:rock_candy_lime",
+    "alexscaves:rock_candy_pink",
+    "alexscaves:rock_candy_gray",
+    "alexscaves:rock_candy_light_blue",
+    "alexscaves:rock_candy_cyan",
+    "alexscaves:rock_candy_purple",
+    "alexscaves:rock_candy_blue",
+    "alexscaves:rock_candy_brown",
+    "alexscaves:rock_candy_green",
+    "alexscaves:rock_candy_red",
+    "alexscaves:rock_candy_black",
+    {
+      "id": "betterend:sulphuric_rock",
+      "required": false
+    },
+    {
+      "id": "betterend:brimstone",
+      "required": false
+    },
     {
       "id": "create:asurine",
       "required": false
@@ -100,6 +148,10 @@
     },
     {
       "id": "enderio:broken_spawner",
+      "required": false
+    },
+    {
+      "id": "scguns:phosphorite",
       "required": false
     }
   ]

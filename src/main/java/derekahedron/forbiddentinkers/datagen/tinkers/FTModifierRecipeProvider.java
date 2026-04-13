@@ -142,6 +142,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.stepUp);
         createOverloadRecipe(consumer, TinkerModifiers.soulspeed.getId());
         createOverloadRecipe(consumer, FTModifierIds.HEART_DROPPING);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("expedient")), false);
         // Abilities
         createOverloadRecipe(consumer, TinkerModifiers.expanded.getId());
         createOverloadRecipe(consumer, ModifierIds.luck);
@@ -159,6 +160,16 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.strength);
         createOverloadRecipe(consumer, ModifierIds.pockets);
         createOverloadRecipe(consumer, ModifierIds.doubleJump);
+        // Affinity
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("ice_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("fire_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("lightning_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("ender_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("holy_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("evocation_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("blood_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("nature_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("mana_upgrade")), false);
 
         MTModifierRecipeProvider.createBoonRecipe(consumer,
                 FTModifierIds.CHAMPIUM_BOON,
@@ -343,6 +354,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.blazingBone,
                 MaterialIds.blazewood,
                 // Extras
+                MaterialIds.treatedWood,
                 MaterialIds.osmium,
                 MaterialIds.silver,
                 MaterialIds.lead,
@@ -368,12 +380,20 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 new MaterialId(CompatUtil.blueSkiesTcon("pyrope")),
                 new MaterialId(CompatUtil.blueSkiesTcon("charoite")),
                 new MaterialId(CompatUtil.blueSkiesTcon("diopside")),
+                new MaterialId(CompatUtil.constructsCasting("arcanium")),
+                new MaterialId(CompatUtil.constructsCasting("frozen_bone")),
+                new MaterialId(CompatUtil.constructsCasting("exilite")),
+                new MaterialId(CompatUtil.constructsCasting("mithril")),
+                new MaterialId(CompatUtil.constructsCasting("pyrium")),
+                new MaterialId(CompatUtil.constructsCasting("frosted_rod")),
+                new MaterialId(CompatUtil.constructsCasting("arcane_cloth")),
                 new MaterialId(CompatUtil.thermalConstruct("basalz_bone")),
                 new MaterialId(CompatUtil.thermalConstruct("blitz_bone")),
                 new MaterialId(CompatUtil.thermalConstruct("signalum")),
                 new MaterialId(CompatUtil.thermalConstruct("lumium")),
                 new MaterialId(CompatUtil.thermalConstruct("enderium")),
-                new MaterialId(CompatUtil.tinkersThings("hematite"))
+                new MaterialId(CompatUtil.tinkersThings("hematite")),
+                new MaterialId(CompatUtil.tinkersThings("magmaskin"))
         ))) {
             createAugmentationRecipe(consumer, materialId, false);
         }

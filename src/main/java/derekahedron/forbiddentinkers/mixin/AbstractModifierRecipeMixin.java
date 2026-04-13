@@ -43,7 +43,7 @@ public abstract class AbstractModifierRecipeMixin {
             if (slots != null
                     && slots.count() > 0
                     && tool.getModifierLevel(FTModifierIds.DIVINE) > 0) {
-                int returnedSlots = DivineSlotsManager.getSlotsToBeAdded2(result.getId(), slots.type(), resultLevel);
+                int returnedSlots = DivineSlotsManager.getSlotsToBeAdded(result.getId(), slots.type(), resultLevel);
 
                 if (returnedSlots > 0) {
                     cir.setReturnValue(checkSlots(tool, new SlotType.SlotCount(slots.type(), slots.count() - returnedSlots)));

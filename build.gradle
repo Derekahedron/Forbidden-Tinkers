@@ -147,6 +147,11 @@ tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
             minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
             forge_version: forge_version, forge_version_range: forge_version_range,
+            mantle_version: mantle_version, mantle_version_range: mantle_version_range,
+            tconstruct_version: tconstruct_version, tconstruct_version_range: tconstruct_version_range,
+            citadel_version: citadel_version, citadel_version_range: citadel_version_range,
+            alexscaves_version: alexscaves_version, alexscaves_version_range: alexscaves_version_range,
+            mythic_tinkers_version: mythic_tinkers_version, mythic_tinkers_version_range: mythic_tinkers_version_range,
             loader_version_range: loader_version_range,
             mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors: mod_authors, mod_description: mod_description,
