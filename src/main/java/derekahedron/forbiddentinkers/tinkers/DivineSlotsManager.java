@@ -17,21 +17,24 @@ public class DivineSlotsManager {
     public static int getSlotsToBeAdded(ModifierId modifierId, SlotType slotType, int modifierLevel) {
         return getDivineSlots(modifierId, modifierLevel).stream()
                 .filter(slots -> modifierLevel <= slots.maxLevel())
-                .filter(slots -> slots.slots().type() == slotType)
-                .mapToInt(slots -> slots.slots().count())
+                .filter(slots -> slots.slots().isPresent())
+                .filter(slots -> slots.slots().get().type() == slotType)
+                .mapToInt(slots -> slots.slots().get().count())
                 .sum();
     }
 
     public static List<SlotType.SlotCount> getAddedSlots(ModifierId modifierId, int modifierLevel) {
         return getDivineSlots(modifierId, modifierLevel).stream()
+                .filter(slots -> slots.slots().isPresent())
                 .map(slots -> new SlotType.SlotCount(
-                        slots.slots().type(),
-                        slots.slots().count() * (Math.min(modifierLevel, slots.maxLevel()) - slots.minLevel())))
+                        slots.slots().get().type(),
+                        slots.slots().get().count() * (Math.min(modifierLevel, slots.maxLevel()) - slots.minLevel())))
                 .toList();
     }
 
     public static List<DivineSlots> getDivineSlots(ModifierId modifierId, int modifierLevel) {
         return SLOTS_MAP.getOrDefault(modifierId, List.of()).stream()
+                .filter(slots -> slots.slots().isPresent())
                 .filter(slots -> modifierLevel >= slots.minLevel())
                 .toList();
     }
@@ -41,6 +44,7 @@ public class DivineSlotsManager {
         SLOTS_MAP.clear();
 
         slotsRegistry.forEach(slots -> {
+            if (slots.slots().isEmpty()) return;
             if (SLOTS_MAP.containsKey(slots.modifierId())) {
                 SLOTS_MAP.get(slots.modifierId()).add(slots);
             } else {

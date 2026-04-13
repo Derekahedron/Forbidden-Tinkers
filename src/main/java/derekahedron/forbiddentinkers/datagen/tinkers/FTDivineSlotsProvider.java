@@ -13,6 +13,8 @@ import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
+import java.util.Optional;
+
 public class FTDivineSlotsProvider {
     public static void bootstrap(BootstapContext<DivineSlots> context) {
         registerUpgrade(context, ModifierIds.experienced, 1, 5);
@@ -92,7 +94,7 @@ public class FTDivineSlotsProvider {
             SlotType.SlotCount slots) {
         context.register(
                 ResourceKey.create(FTRegistryKeys.DIVINE_SLOTS, FTUtil.location(modifierId.getPath())),
-                new DivineSlots(modifierId, minLevel, maxLevel, slots));
+                new DivineSlots(modifierId, minLevel, maxLevel, Optional.of(slots)));
     }
 
     public static void registerUpgrade(
@@ -117,6 +119,6 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, modifierId, 1, 3);
         context.register(
                 ResourceKey.create(FTRegistryKeys.DIVINE_SLOTS, FTUtil.location(modifierId.getPath() + "_affinity")),
-                new DivineSlots(modifierId, 4, 5, new SlotType.SlotCount(SlotType.getOrCreate("affinity"), 1)));
+                new DivineSlots(modifierId, 4, 5, Optional.of(new SlotType.SlotCount(SlotType.getOrCreate("affinity"), 1))));
     }
 }
