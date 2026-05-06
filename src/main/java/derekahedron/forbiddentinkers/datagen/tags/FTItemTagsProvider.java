@@ -5,7 +5,6 @@ import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import derekahedron.forbiddentinkers.item.FTItemTags;
 import derekahedron.forbiddentinkers.item.FTItems;
-import derekahedron.forbiddentinkers.util.CompatUtil;
 import derekahedron.forbiddentinkers.util.ForgeTags;
 import derekahedron.invexp.item.InvExpItemTags;
 import derekahedron.mythictinkers.item.MTItems;
@@ -13,6 +12,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -133,22 +133,32 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .add(TinkerToolParts.repairKit.get())
                 .add(TinkerToolParts.fakeIngot.get())
                 .add(TinkerToolParts.fakeStorageBlock.asItem())
-                .addOptional(CompatUtil.tinkersThings("large_repair_kit"));
+                .addOptional(new ResourceLocation("tinkers_things:large_repair_kit"));
 
         tag(FTItemTags.DISPOSABLE)
                 .add(Items.STONE)
                 .add(Items.COBBLESTONE)
+                .add(Items.MOSSY_COBBLESTONE)
                 .add(Items.DEEPSLATE)
                 .add(Items.COBBLED_DEEPSLATE)
                 .add(Items.TUFF)
                 .add(Items.GRANITE)
                 .add(Items.DIORITE)
                 .add(Items.ANDESITE)
+                .add(Items.CALCITE)
+                .add(Items.SMOOTH_BASALT)
+                .add(Items.DRIPSTONE_BLOCK)
+                .add(Items.POINTED_DRIPSTONE)
+                .add(Items.AMETHYST_BLOCK)
                 .add(Items.DIRT)
                 .add(Items.GRAVEL)
                 .add(Items.SAND)
+                .add(Items.SANDSTONE)
                 .add(Items.RED_SAND)
+                .add(Items.RED_SANDSTONE)
                 .add(Items.MUD)
+                .add(Items.MOSS_BLOCK)
+                .add(Items.MOSS_CARPET)
                 .add(Items.NETHERRACK)
                 .add(Items.NETHER_BRICK)
                 .add(Items.BLACKSTONE)
@@ -246,16 +256,51 @@ public class FTItemTagsProvider extends ItemTagsProvider {
                 .add(ACBlockRegistry.GREEN_ROCK_CANDY.get().asItem())
                 .add(ACBlockRegistry.RED_ROCK_CANDY.get().asItem())
                 .add(ACBlockRegistry.BLACK_ROCK_CANDY.get().asItem())
-                .addOptional(CompatUtil.betterEnd("sulphuric_rock"))
-                .addOptional(CompatUtil.betterEnd("brimstone"))
-                .addOptional(CompatUtil.create("asurine"))
-                .addOptional(CompatUtil.create("crimsite"))
-                .addOptional(CompatUtil.create("limestone"))
-                .addOptional(CompatUtil.create("ochrum"))
-                .addOptional(CompatUtil.create("scoria"))
-                .addOptional(CompatUtil.create("scorchia"))
-                .addOptional(CompatUtil.create("veridium"))
-                .addOptional(CompatUtil.enderIO("broken_spawner"))
-                .addOptional(CompatUtil.scorchedGuns("phosphorite"));
+                .addOptional(new ResourceLocation("betterend:sulphuric_rock"))
+                .addOptional(new ResourceLocation("betterend:brimstone"))
+                .addOptional(new ResourceLocation("betterend:azure_jadestone"))
+                .addOptional(new ResourceLocation("betterend:virid_jadestone"))
+                .addOptional(new ResourceLocation("betterend:sandy_jadestone"))
+                .addOptional(new ResourceLocation("betterend:violecite"))
+                .addOptional(new ResourceLocation("betterend:flavolite"))
+                .addOptional(new ResourceLocation("betterend:umbralith"))
+                .addOptional(new ResourceLocation("betterend:endstone_dust"))
+                .addOptional(new ResourceLocation("betternether:soul_sandstone"))
+                .addOptional(new ResourceLocation("betternether:basalt_stalactite"))
+                .addOptional(new ResourceLocation("betternether:netherrack_stalactite"))
+                .addOptional(new ResourceLocation("betternether:blackstone_stalactite"))
+                .addOptional(new ResourceLocation("betternether:bone_stalactite"))
+                .addOptional(new ResourceLocation("betternether:glowstone_stalactite"))
+                .addOptional(new ResourceLocation("biomesoplenty:glowing_moss_block"))
+                .addOptional(new ResourceLocation("biomesoplenty:glowing_moss_carpet"))
+                .addOptional(new ResourceLocation("biomesoplenty:flesh"))
+                .addOptional(new ResourceLocation("biomesoplenty:porous_flesh"))
+                .addOptional(new ResourceLocation("biomesoplenty:white_sand"))
+                .addOptional(new ResourceLocation("biomesoplenty:orange_sand"))
+                .addOptional(new ResourceLocation("biomesoplenty:black_sand"))
+                .addOptional(new ResourceLocation("biomesoplenty:white_sandstone"))
+                .addOptional(new ResourceLocation("biomesoplenty:orange_sandstone"))
+                .addOptional(new ResourceLocation("biomesoplenty:black_sandstone"))
+                .addOptional(new ResourceLocation("biomesoplenty:thermal_calcite"))
+                .addOptional(new ResourceLocation("biomesoplenty:brimstone"))
+                .addOptional(new ResourceLocation("biomesoplenty:rose_quartz_block"))
+                .addOptional(new ResourceLocation("create:asurine"))
+                .addOptional(new ResourceLocation("create:crimsite"))
+                .addOptional(new ResourceLocation("create:limestone"))
+                .addOptional(new ResourceLocation("create:ochrum"))
+                .addOptional(new ResourceLocation("create:scoria"))
+                .addOptional(new ResourceLocation("create:scorchia"))
+                .addOptional(new ResourceLocation("create:veridium"))
+                .addOptional(new ResourceLocation("enderio:broken_spawner"))
+                .addOptional(new ResourceLocation("galosphere:allurite_block"))
+                .addOptional(new ResourceLocation("galosphere:lumiere_block"))
+                .addOptional(new ResourceLocation("galosphere:pastel_pink_salt"))
+                .addOptional(new ResourceLocation("galosphere:rose_pink_salt"))
+                .addOptional(new ResourceLocation("galosphere:pink_salt"))
+                .addOptional(new ResourceLocation("galosphere:pink_salt_straw"))
+                .addOptional(new ResourceLocation("scguns:phosphorite"))
+                .addOptional(new ResourceLocation("yungscavebiomes:ancient_sand"))
+                .addOptional(new ResourceLocation("yungscavebiomes:ancient_sandstone"))
+                .addOptional(new ResourceLocation("yungscavebiomes:layered_ancient_sandstone"));
     }
 }

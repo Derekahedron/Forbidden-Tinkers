@@ -46,7 +46,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         graphics.blit(BACKGROUND_TEXTURE, baseX, baseY, 0, 0, imageWidth, imageHeight);
 
         if (menu.blockEntity.recipe != null) {
-            renderRecipe(graphics, menu.blockEntity.recipe);
+            renderRecipe(graphics, menu.blockEntity.recipe, mouseX, mouseY);
         }
     }
 
@@ -57,7 +57,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         renderTooltip(graphics, mouseX, mouseY);
     }
 
-    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe) {
+    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe, int mouseX, int mouseY) {
         int numIngredients = recipe.ingredients.size();
         int x = (imageWidth - SLOT_SIZE * numIngredients - PADDING * Math.max(numIngredients - 1, 0)) / 2;
         int y = BORDER + FONT_MARGIN + FONT_HEIGHT;
@@ -65,6 +65,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
 
         for (int i = 0; i < numIngredients; i++) {
             int slotX = baseX + x + i * (SLOT_SIZE + PADDING);
+            int slotY = baseY + y;
 
             ItemStack[] displayStacks = recipe.ingredients.get(i).getItems();
             if (displayStacks.length > 0) {
@@ -72,7 +73,15 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
 
                 graphics.renderItem(displayStack,
                         slotX + SLOT_BORDER,
-                        baseY + y);
+                        slotY);
+
+                // Render item if hovered
+                if (mouseX >= slotX + SLOT_BORDER
+                        && mouseX < slotX + SLOT_BORDER + ITEM_SIZE
+                        && mouseY >= slotY
+                        && mouseY < slotY + ITEM_SIZE) {
+                    graphics.renderTooltip(font, displayStack, mouseX, mouseY);
+                }
             }
 
             if (!menu.blockEntity.hasUsesRemaining()) {
@@ -97,8 +106,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
 
         x = (imageWidth - FILL_BAR_WIDTH) / 2;
         y += ITEM_SIZE + INPUTS_GAP + SLOT_SIZE + PADDING + FILL_BAR_BORDER;
-//        float fill = recipe.count <= 1 ? 0F
-//                : Math.min((float) menu.blockEntity.count / (recipe.count - 1), 1.0F);
+
         float fill;
         if (menu.blockEntity.cooldown > 0 && menu.blockEntity.count > 0) {
             float cooldownFill = 1 - (float) menu.blockEntity.cooldown / ChampiumForgeBlockEntity.COOLDOWN;

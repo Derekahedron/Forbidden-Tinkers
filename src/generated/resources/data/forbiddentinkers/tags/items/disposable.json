@@ -2,17 +2,27 @@
   "values": [
     "minecraft:stone",
     "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
     "minecraft:deepslate",
     "minecraft:cobbled_deepslate",
     "minecraft:tuff",
     "minecraft:granite",
     "minecraft:diorite",
     "minecraft:andesite",
+    "minecraft:calcite",
+    "minecraft:smooth_basalt",
+    "minecraft:dripstone_block",
+    "minecraft:pointed_dripstone",
+    "minecraft:amethyst_block",
     "minecraft:dirt",
     "minecraft:gravel",
     "minecraft:sand",
+    "minecraft:sandstone",
     "minecraft:red_sand",
+    "minecraft:red_sandstone",
     "minecraft:mud",
+    "minecraft:moss_block",
+    "minecraft:moss_carpet",
     "minecraft:netherrack",
     "minecraft:nether_brick",
     "minecraft:blackstone",
@@ -119,6 +129,110 @@
       "required": false
     },
     {
+      "id": "betterend:azure_jadestone",
+      "required": false
+    },
+    {
+      "id": "betterend:virid_jadestone",
+      "required": false
+    },
+    {
+      "id": "betterend:sandy_jadestone",
+      "required": false
+    },
+    {
+      "id": "betterend:violecite",
+      "required": false
+    },
+    {
+      "id": "betterend:flavolite",
+      "required": false
+    },
+    {
+      "id": "betterend:umbralith",
+      "required": false
+    },
+    {
+      "id": "betterend:endstone_dust",
+      "required": false
+    },
+    {
+      "id": "betternether:soul_sandstone",
+      "required": false
+    },
+    {
+      "id": "betternether:basalt_stalactite",
+      "required": false
+    },
+    {
+      "id": "betternether:netherrack_stalactite",
+      "required": false
+    },
+    {
+      "id": "betternether:blackstone_stalactite",
+      "required": false
+    },
+    {
+      "id": "betternether:bone_stalactite",
+      "required": false
+    },
+    {
+      "id": "betternether:glowstone_stalactite",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:glowing_moss_block",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:glowing_moss_carpet",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:flesh",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:porous_flesh",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_sand",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:orange_sand",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:black_sand",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_sandstone",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:orange_sandstone",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:black_sandstone",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:thermal_calcite",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:brimstone",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rose_quartz_block",
+      "required": false
+    },
+    {
       "id": "create:asurine",
       "required": false
     },
@@ -151,7 +265,43 @@
       "required": false
     },
     {
+      "id": "galosphere:allurite_block",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_block",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_straw",
+      "required": false
+    },
+    {
       "id": "scguns:phosphorite",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sand",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:layered_ancient_sandstone",
       "required": false
     }
   ]

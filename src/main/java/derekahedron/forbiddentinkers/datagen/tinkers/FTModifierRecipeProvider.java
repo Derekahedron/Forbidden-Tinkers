@@ -7,12 +7,12 @@ import derekahedron.forbiddentinkers.recipe.AugmentationModifierRecipe;
 import derekahedron.forbiddentinkers.recipe.OverloadModifierRecipe;
 import derekahedron.forbiddentinkers.tinkers.materials.FTMaterialIds;
 import derekahedron.forbiddentinkers.tinkers.modifiers.FTModifierIds;
-import derekahedron.forbiddentinkers.util.CompatUtil;
 import derekahedron.mythictinkers.datagen.tinkers.MTModifierRecipeProvider;
 import derekahedron.mythictinkers.tinkers.materials.MTMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.CompoundIngredient;
@@ -124,7 +124,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.hydraulic);
         createOverloadRecipe(consumer, ModifierIds.lightspeed);
         createOverloadRecipe(consumer, ModifierIds.arrowPierce);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.tinkersThings("blinding")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("tinkers_things:blinding")), false);
         createOverloadRecipe(consumer, ModifierIds.power);
         createOverloadRecipe(consumer, ModifierIds.punch);
         createOverloadRecipe(consumer, ModifierIds.quickCharge);
@@ -142,7 +142,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.stepUp);
         createOverloadRecipe(consumer, TinkerModifiers.soulspeed.getId());
         createOverloadRecipe(consumer, FTModifierIds.HEART_DROPPING);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("expedient")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:expedient")), false);
         // Abilities
         createOverloadRecipe(consumer, TinkerModifiers.expanded.getId());
         createOverloadRecipe(consumer, ModifierIds.luck);
@@ -161,15 +161,15 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.pockets);
         createOverloadRecipe(consumer, ModifierIds.doubleJump);
         // Affinity
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("ice_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("fire_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("lightning_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("ender_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("holy_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("evocation_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("blood_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("nature_upgrade")), false);
-        createOverloadRecipe(consumer, new ModifierId(CompatUtil.constructsCasting("mana_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:ice_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:fire_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:lightning_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:ender_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:holy_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:evocation_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:blood_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:nature_upgrade")), false);
+        createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:mana_upgrade")), false);
 
         MTModifierRecipeProvider.createBoonRecipe(consumer,
                 FTModifierIds.CHAMPIUM_BOON,
@@ -375,25 +375,25 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         }
 
         for (MaterialVariantId materialId : Set.copyOf(List.of(
-                new MaterialId(CompatUtil.blueSkiesTcon("aquite")),
-                new MaterialId(CompatUtil.blueSkiesTcon("horizonite")),
-                new MaterialId(CompatUtil.blueSkiesTcon("pyrope")),
-                new MaterialId(CompatUtil.blueSkiesTcon("charoite")),
-                new MaterialId(CompatUtil.blueSkiesTcon("diopside")),
-                new MaterialId(CompatUtil.constructsCasting("arcanium")),
-                new MaterialId(CompatUtil.constructsCasting("frozen_bone")),
-                new MaterialId(CompatUtil.constructsCasting("exilite")),
-                new MaterialId(CompatUtil.constructsCasting("mithril")),
-                new MaterialId(CompatUtil.constructsCasting("pyrium")),
-                new MaterialId(CompatUtil.constructsCasting("frosted_rod")),
-                new MaterialId(CompatUtil.constructsCasting("arcane_cloth")),
-                new MaterialId(CompatUtil.thermalConstruct("basalz_bone")),
-                new MaterialId(CompatUtil.thermalConstruct("blitz_bone")),
-                new MaterialId(CompatUtil.thermalConstruct("signalum")),
-                new MaterialId(CompatUtil.thermalConstruct("lumium")),
-                new MaterialId(CompatUtil.thermalConstruct("enderium")),
-                new MaterialId(CompatUtil.tinkersThings("hematite")),
-                new MaterialId(CompatUtil.tinkersThings("magmaskin"))
+                new MaterialId(new ResourceLocation("blue_skies_tcon:aquite")),
+                new MaterialId(new ResourceLocation("blue_skies_tcon:horizonite")),
+                new MaterialId(new ResourceLocation("blue_skies_tcon:pyrope")),
+                new MaterialId(new ResourceLocation("blue_skies_tcon:charoite")),
+                new MaterialId(new ResourceLocation("blue_skies_tcon:diopside")),
+                new MaterialId(new ResourceLocation("constructs_casting:arcanium")),
+                new MaterialId(new ResourceLocation("constructs_casting:frozen_bone")),
+                new MaterialId(new ResourceLocation("constructs_casting:exilite")),
+                new MaterialId(new ResourceLocation("constructs_casting:mithril")),
+                new MaterialId(new ResourceLocation("constructs_casting:pyrium")),
+                new MaterialId(new ResourceLocation("constructs_casting:frosted_rod")),
+                new MaterialId(new ResourceLocation("constructs_casting:arcane_cloth")),
+                new MaterialId(new ResourceLocation("thermalconstruct:basalz_bone")),
+                new MaterialId(new ResourceLocation("thermalconstruct:blitz_bone")),
+                new MaterialId(new ResourceLocation("thermalconstruct:signalum")),
+                new MaterialId(new ResourceLocation("thermalconstruct:lumium")),
+                new MaterialId(new ResourceLocation("thermalconstruct:enderium")),
+                new MaterialId(new ResourceLocation("tinkers_things:hematite")),
+                new MaterialId(new ResourceLocation("tinkers_things:magmaskin"))
         ))) {
             createAugmentationRecipe(consumer, materialId, false);
         }

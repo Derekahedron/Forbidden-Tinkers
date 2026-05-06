@@ -3,11 +3,11 @@ package derekahedron.forbiddentinkers.datagen.tinkers;
 import derekahedron.forbiddentinkers.registry.FTRegistryKeys;
 import derekahedron.forbiddentinkers.tinkers.DivineSlots;
 import derekahedron.forbiddentinkers.tinkers.modifiers.FTModifierIds;
-import derekahedron.forbiddentinkers.util.CompatUtil;
 import derekahedron.forbiddentinkers.util.FTUtil;
 import derekahedron.mythictinkers.tinkers.modifiers.MTModifierIds;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.tools.TinkerModifiers;
@@ -47,7 +47,7 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, ModifierIds.lightspeed, 1, 3);
         registerUpgrade(context, ModifierIds.arrowPierce, 1, 4);
         registerUpgrade(context, ModifierIds.bounce, 1, 3);
-        registerUpgrade(context, new ModifierId(CompatUtil.tinkersThings("blinding")), 1, 5);
+        registerUpgrade(context, new ModifierId(new ResourceLocation("tinkers_things:blinding")), 1, 5);
         registerUpgrade(context, ModifierIds.punch, 1, 3);
         registerUpgrade(context, ModifierIds.power, 1, 5);
         registerUpgrade(context, ModifierIds.quickCharge, 1, 4);
@@ -64,9 +64,9 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, ModifierIds.featherFalling, 1, 2);
         registerUpgrade(context, TinkerModifiers.soulspeed.getId(), 1, 3);
         registerUpgrade(context, ModifierIds.returning, 1, 4);
-        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("expedient")), 1, 3);
-        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("swiftcasting")), 1, 3);
-        registerUpgrade(context, new ModifierId(CompatUtil.constructsCasting("slot_improvement")), 1, 6);
+        registerUpgrade(context, new ModifierId(new ResourceLocation("constructs_casting:expedient")), 1, 3);
+        registerUpgrade(context, new ModifierId(new ResourceLocation("constructs_casting:swiftcasting")), 1, 3);
+        registerUpgrade(context, new ModifierId(new ResourceLocation("constructs_casting:slot_improvement")), 1, 6);
 
         registerAbility(context, ModifierIds.reach, 1, 2);
         registerAbility(context, ModifierIds.strength, 1, 2);
@@ -75,15 +75,15 @@ public class FTDivineSlotsProvider {
         registerAbility(context, ModifierIds.boundless, 1, 5);
         registerAbility(context, ModifierIds.leaping, 1, 1);
 
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("ice_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("fire_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("lightning_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("ender_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("holy_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("evocation_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("blood_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("nature_upgrade")));
-        registerElementalMagic(context, new ModifierId(CompatUtil.constructsCasting("mana_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:ice_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:fire_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:lightning_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:ender_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:holy_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:evocation_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:blood_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:nature_upgrade")));
+        registerElementalMagic(context, new ModifierId(new ResourceLocation("constructs_casting:mana_upgrade")));
     }
 
     public static void register(
