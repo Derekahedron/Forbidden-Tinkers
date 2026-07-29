@@ -3,6 +3,7 @@ package derekahedron.forbiddentinkers.block;
 import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
 import derekahedron.forbiddentinkers.block.entity.FTBlockEntityTypes;
 import derekahedron.forbiddentinkers.particle.FTParticleTypes;
+import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -79,14 +80,20 @@ public class ChampiumForgeBlock extends BaseEntityBlock implements EntityBlock, 
         if (!level.isClientSide()) {
             if (level.getBlockEntity(pos) instanceof ChampiumForgeBlockEntity blockEntity) {
                 blockEntity.refreshRecipe();
-                NetworkHooks.openScreen((ServerPlayer) player, blockEntity, buf -> {
-                    buf.writeBlockPos(pos);
-                    buf.writeOptional(
+                NetworkHooks.openScreen((ServerPlayer) player, blockEntity, buffer -> {
+                    buffer.writeBlockPos(pos);
+                    buffer.writeOptional(
                             Optional.ofNullable(blockEntity.recipeId),
                             FriendlyByteBuf::writeResourceLocation);
-                    buf.writeOptional(
+                    buffer.writeOptional(
                             Optional.ofNullable(blockEntity.maxUses),
                             FriendlyByteBuf::writeInt);
+                    buffer.writeOptional(
+                            Optional.ofNullable(blockEntity.ingredients),
+                            (buf, ingredients) ->
+                                    buf.writeCollection(
+                                            ingredients,
+                                            ChampiumForgeIngredient.IngredientOption::toNetwork));
                 });
             }
         }

@@ -15,4 +15,7 @@ public class FTItemTags {
 
     public static final TagKey<Item> DISPOSABLE =
             ItemTags.create(FTUtil.location("disposable"));
+
+    public static final TagKey<Item> MEALS =
+            ItemTags.create(FTUtil.location("meals"));
 }

@@ -83,8 +83,12 @@ public class FunnyModifier extends Modifier implements MeleeHitModifierHook, OnA
     }
 
     public static void playHonkSound(@Nullable Entity entity, ModifierEntry modifier) {
-        if (entity != null && modifier.getLevel() > 0) {
-            SoundEvent honkSound = switch (modifier.getLevel()) {
+        playHonkSound(entity, modifier.getLevel());
+    }
+
+    public static void playHonkSound(@Nullable Entity entity, int level) {
+        if (entity != null && level > 0) {
+            SoundEvent honkSound = switch (level) {
                 case 1 -> FTSoundEvents.FUNNY.get();
                 case 2 -> FTSoundEvents.FUNNIER.get();
                 default -> FTSoundEvents.FUNNIEST.get();

@@ -2,6 +2,7 @@ package derekahedron.forbiddentinkers.client.inventory;
 
 import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
 import derekahedron.forbiddentinkers.inventory.ChampiumForgeMenu;
+import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import derekahedron.forbiddentinkers.recipe.ChampiumForgeRecipe;
 import derekahedron.forbiddentinkers.util.FTUtil;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,9 +13,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 import static derekahedron.forbiddentinkers.inventory.ChampiumForgeMenu.*;
 
 public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMenu> {
+
     public static final ResourceLocation FOLDER = FTUtil.location("textures/gui/container/champium_forge/");
     public static final ResourceLocation BACKGROUND_TEXTURE = FOLDER.withSuffix("background.png");
     public static final ResourceLocation SLOT_TEXTURE = FOLDER.withSuffix("slot.png");
@@ -45,8 +49,8 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         baseY = (height - imageHeight) / 2;
         graphics.blit(BACKGROUND_TEXTURE, baseX, baseY, 0, 0, imageWidth, imageHeight);
 
-        if (menu.blockEntity.recipe != null) {
-            renderRecipe(graphics, menu.blockEntity.recipe, mouseX, mouseY);
+        if (menu.blockEntity.recipe != null && menu.blockEntity.ingredients != null) {
+            renderRecipe(graphics, menu.blockEntity.recipe, menu.blockEntity.ingredients, mouseX, mouseY);
         }
     }
 
@@ -57,17 +61,18 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         renderTooltip(graphics, mouseX, mouseY);
     }
 
-    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe, int mouseX, int mouseY) {
-        int numIngredients = recipe.ingredients.size();
+    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe, List<ChampiumForgeIngredient.IngredientOption> ingredients, int mouseX, int mouseY) {
+        int numIngredients = ingredients.size();
         int x = (imageWidth - SLOT_SIZE * numIngredients - PADDING * Math.max(numIngredients - 1, 0)) / 2;
         int y = BORDER + FONT_MARGIN + FONT_HEIGHT;
         long cycles = (System.currentTimeMillis() - screenOpenedMillis) / ITEM_CYCLE_TIME_MILLIS;
+        ItemStack hoveredStack = null;
 
         for (int i = 0; i < numIngredients; i++) {
             int slotX = baseX + x + i * (SLOT_SIZE + PADDING);
             int slotY = baseY + y;
 
-            ItemStack[] displayStacks = recipe.ingredients.get(i).getItems();
+            ItemStack[] displayStacks = ingredients.get(i).ingredient().getItems();
             if (displayStacks.length > 0) {
                 ItemStack displayStack = displayStacks[(int) cycles % displayStacks.length];
 
@@ -76,11 +81,12 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
                         slotY);
 
                 // Render item if hovered
-                if (mouseX >= slotX + SLOT_BORDER
+                if (hoveredStack == null
+                        && mouseX >= slotX + SLOT_BORDER
                         && mouseX < slotX + SLOT_BORDER + ITEM_SIZE
                         && mouseY >= slotY
                         && mouseY < slotY + ITEM_SIZE) {
-                    graphics.renderTooltip(font, displayStack, mouseX, mouseY);
+                    hoveredStack = displayStack;
                 }
             }
 
@@ -122,5 +128,9 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
                 0, 0,
                 barWidth, FILL_BAR_HEIGHT,
                 FILL_BAR_WIDTH, FILL_BAR_HEIGHT);
+
+        if (hoveredStack != null) {
+            graphics.renderTooltip(font, hoveredStack, mouseX, mouseY);
+        }
     }
 }

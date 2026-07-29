@@ -12,13 +12,11 @@ import java.util.function.Supplier;
 public record ChampiumSmokePacket(BlockPos blockPos) {
 
     public ChampiumSmokePacket(FriendlyByteBuf buffer) {
-        this(new BlockPos(buffer.readInt(), buffer.readInt(), buffer.readInt()));
+        this(buffer.readBlockPos());
     }
 
     public void toBytes(FriendlyByteBuf buffer) {
-        buffer.writeInt(blockPos.getX());
-        buffer.writeInt(blockPos.getY());
-        buffer.writeInt(blockPos.getZ());
+        buffer.writeBlockPos(blockPos);
     }
 
     public void handle(Supplier<NetworkEvent.Context> context) {

@@ -1,7 +1,9 @@
 package derekahedron.forbiddentinkers.inventory;
 
 import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
+import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import javax.annotation.Nullable;
 
 public class ChampiumForgeMenu extends AbstractContainerMenu {
+
     public static final int WIDTH = 208;
     public static final int HEIGHT = 195;
     public static final int BORDER = 3;
@@ -31,7 +34,8 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
     public static final int SLOT_SIZE = ITEM_SIZE + SLOT_BORDER * 2;
     public static final int RESULT_SLOT_BORDER = 5;
     public static final int RESULT_SLOT_SIZE = ITEM_SIZE + RESULT_SLOT_BORDER * 2;
-    public ChampiumForgeBlockEntity blockEntity;
+
+    public final ChampiumForgeBlockEntity blockEntity;
 
     public ChampiumForgeMenu(int id, Inventory inventory, BlockEntity blockEntity) {
         super(FTMenuTypes.CHAMPIUM_FORGE.get(), id);
@@ -45,7 +49,7 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
     }
 
     public void addChampiumForgeSlots() {
-        int numIngredients = blockEntity.recipe == null ? 0 : blockEntity.recipe.getIngredients().size();
+        int numIngredients = blockEntity.recipe == null ? 0 : blockEntity.recipe.ingredients.size();
         int x = (WIDTH - SLOT_SIZE * numIngredients - PADDING * Math.max(numIngredients - 1, 0)) / 2;
         int y = BORDER + FONT_MARGIN + FONT_HEIGHT + ITEM_SIZE + INPUTS_GAP;
 
@@ -99,10 +103,16 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
         BlockPos pos = extraData.readBlockPos();
         ResourceLocation recipeId = extraData.readOptional(FriendlyByteBuf::readResourceLocation).orElse(null);
         Integer maxUses = extraData.readOptional(FriendlyByteBuf::readInt).orElse(null);
+        NonNullList<ChampiumForgeIngredient.IngredientOption> ingredients = extraData.readOptional(
+                (buf) -> buf.readCollection(
+                        NonNullList::createWithCapacity,
+                        ChampiumForgeIngredient.IngredientOption::fromNetwork))
+                .orElse(null);
 
         if (inventory.player.level().getBlockEntity(pos) instanceof ChampiumForgeBlockEntity blockEntity) {
             blockEntity.recipeId = recipeId;
             blockEntity.maxUses = maxUses;
+            blockEntity.ingredients = ingredients;
             return new ChampiumForgeMenu(id, inventory, blockEntity);
         } else {
             return null;
@@ -111,29 +121,30 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int slotIndex) {
-        int inventorySize = blockEntity.getContainerSize() + 36;
-        Slot slot = slots.get(slotIndex);
+        int menuSize = blockEntity.getContainerSize() + 36;
 
+        Slot slot = slots.get(slotIndex);
         if (!slot.hasItem()) return ItemStack.EMPTY;
 
         ItemStack stack = slot.getItem();
         ItemStack copy = stack.copy();
 
         if (slotIndex < blockEntity.getContainerSize() && slotIndex >= 0) {
-            if (!moveItemStackTo(stack, blockEntity.getContainerSize(), inventorySize, true)) {
+            if (!moveItemStackTo(stack, blockEntity.getContainerSize(), menuSize, true)) {
                 return ItemStack.EMPTY;
             }
 
             slot.onQuickCraft(stack, copy);
         } else if (slotIndex >= blockEntity.getContainerSize()) {
             blockEntity.loadRecipe();
-            if (blockEntity.recipe == null || !blockEntity.hasUsesRemaining() || blockEntity.recipe.ingredients.stream()
-                    .noneMatch(ingredient -> ingredient.test(stack))) {
-                if (slotIndex >= inventorySize - 9) {
-                    if (!moveItemStackTo(stack, blockEntity.getContainerSize(), inventorySize - 9, false)) {
+            if (blockEntity.ingredients == null
+                    || !blockEntity.hasUsesRemaining()
+                    || blockEntity.ingredients.stream().noneMatch(ingredient -> ingredient.test(stack))) {
+                if (slotIndex >= menuSize - 9) {
+                    if (!moveItemStackTo(stack, blockEntity.getContainerSize(), menuSize - 9, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!moveItemStackTo(stack, inventorySize - 9, inventorySize, false)) {
+                } else if (!moveItemStackTo(stack, menuSize - 9, menuSize, false)) {
                     return ItemStack.EMPTY;
                 }
             } else {
@@ -172,15 +183,17 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
         public boolean mayPlace(ItemStack stack) {
             blockEntity.loadRecipe();
             if (blockEntity.recipe == null) return false;
+            if (blockEntity.ingredients == null) return false;
             if (!blockEntity.hasUsesRemaining()) return false;
-            if (index < 0 || index >= blockEntity.recipe.ingredients.size()) return false;
-            return blockEntity.recipe.ingredients.get(index).test(stack);
+            if (index < 0 || index >= blockEntity.ingredients.size()) return false;
+            return blockEntity.ingredients.get(index).test(stack);
         }
 
         public boolean isActive() {
             blockEntity.loadRecipe();
             if (blockEntity.recipe == null) return false;
-            return (index >= 0 && index < blockEntity.recipe.ingredients.size());
+            if (blockEntity.ingredients == null) return false;
+            return (index >= 0 && index < blockEntity.ingredients.size());
         }
     }
 

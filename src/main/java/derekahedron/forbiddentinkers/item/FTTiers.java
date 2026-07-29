@@ -12,6 +12,7 @@ import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public enum FTTiers implements Tier {
 
@@ -21,7 +22,7 @@ public enum FTTiers implements Tier {
             8.0F,
             3.5F,
             100,
-            FTItems.CHAMPIUM_INGOT.get(),
+            FTItems.CHAMPIUM_INGOT::get,
             FTBlockTags.NEEDS_CHAMPIUM_TOOL);
 
     private final int level;
@@ -29,16 +30,16 @@ public enum FTTiers implements Tier {
     private final float speed;
     private final float damage;
     private final int enchantmentValue;
-    private final Ingredient repairIngredient;
+    private final Supplier<Ingredient> repairIngredient;
     private final TagKey<Block> tag;
 
-    FTTiers(int level, int durability, float speed, float damage, int enchantmentValue, ItemLike repairIngredient, TagKey<Block> tag) {
+    FTTiers(int level, int durability, float speed, float damage, int enchantmentValue, Supplier<ItemLike> repairIngredient, TagKey<Block> tag) {
         this.level = level;
         this.durability = durability;
         this.speed = speed;
         this.damage = damage;
         this.enchantmentValue = enchantmentValue;
-        this.repairIngredient = Ingredient.of(repairIngredient);
+        this.repairIngredient = () -> Ingredient.of(repairIngredient.get());
         this.tag = tag;
     }
 
@@ -69,7 +70,7 @@ public enum FTTiers implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient;
+        return this.repairIngredient.get();
     }
 
     @Override

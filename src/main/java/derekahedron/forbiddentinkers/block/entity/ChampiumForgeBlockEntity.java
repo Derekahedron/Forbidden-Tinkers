@@ -1,17 +1,23 @@
 package derekahedron.forbiddentinkers.block.entity;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.mojang.serialization.JsonOps;
 import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import derekahedron.forbiddentinkers.block.ChampiumForgeBlock;
 import derekahedron.forbiddentinkers.inventory.ChampiumForgeMenu;
+import derekahedron.forbiddentinkers.network.ChampiumForgeMenuIngredientsPacket;
 import derekahedron.forbiddentinkers.network.ChampiumSmokePacket;
 import derekahedron.forbiddentinkers.network.FTPacketHandler;
 import derekahedron.forbiddentinkers.particle.FTParticleTypes;
+import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import derekahedron.forbiddentinkers.recipe.ChampiumForgeRecipe;
 import derekahedron.forbiddentinkers.recipe.FTRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -25,8 +31,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -41,6 +45,7 @@ import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
     public static final Component TITLE = Component.translatable("container." + ForbiddenTinkers.MOD_ID + ".champium_forge");
@@ -50,6 +55,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public static final int NUM_INPUT_SLOTS = 9;
     public static final String RECIPE_SEED_KEY = "RecipeSeed";
     public static final String RECIPE_KEY = "Recipe";
+    public static final String INGREDIENTS_KEY = "Ingredients";
     public static final String COUNT_KEY = "Count";
     public static final String USES_KEY = "Uses";
     public static final String MAX_USES_KEY = "MaxUses";
@@ -72,6 +78,8 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public ResourceLocation recipeId = null;
     @Nullable
     public ChampiumForgeRecipe recipe = null;
+    @Nullable
+    public NonNullList<ChampiumForgeIngredient.IngredientOption> ingredients;
     public int count = 0;
     public int uses = 0;
     @Nullable
@@ -79,7 +87,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public int cooldown = 0;
     public int burnCooldown = 0;
     public int smokeCooldown = 0;
-    public NonNullList<ItemStack> inputs = NonNullList.withSize(NUM_INPUT_SLOTS + 1, ItemStack.EMPTY);
+    public final NonNullList<ItemStack> inputs = NonNullList.withSize(NUM_INPUT_SLOTS + 1, ItemStack.EMPTY);
     public ItemStack result = ItemStack.EMPTY;
     public final ContainerData data;
     public LazyOptional<? extends IItemHandler>[] handlers;
@@ -177,8 +185,8 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         totalSlots++;
 
         loadRecipe();
-        if (recipe != null) {
-            for (int i = 0; i < recipe.ingredients.size(); i++) {
+        if (ingredients != null) {
+            for (int i = 0; i < ingredients.size(); i++) {
                 ItemStack inputStack = getItem(i);
                 if (!inputStack.isEmpty()) {
                     fill += (float) inputStack.getCount() / Math.min(getMaxStackSize(), inputStack.getMaxStackSize());
@@ -203,7 +211,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         if (entity.cooldown <= 0) {
             if (entity.hasUsesRemaining()) {
                 entity.loadRecipe();
-                if (entity.recipe == null) return;
+                if (entity.recipe == null || entity.ingredients == null) return;
 
                 if (entity.count >= entity.recipe.count) {
                     ItemStack recipeResult = entity.recipe.assemble(entity, level.registryAccess());
@@ -230,6 +238,11 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                             }
                             changed = true;
 
+                            if (entity.recipe.reloadAfterCraft) {
+                                entity.reloadIngredients(entity.recipe);
+                                entity.syncIngredientsToPlayers();
+                            }
+
                             if (!entity.hasUsesRemaining()) {
                                 entity.burnCooldown = BURN_COOLDOWN_DEFAULT;
                                 entity.smokeCooldown = SMOKE_COOLDOWN_DEFAULT;
@@ -242,7 +255,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                     ItemStack recipeResult = entity.recipe.assemble(entity, level.registryAccess());
 
                     if (entity.canAcceptResult(recipeResult)) {
-                        for (int i = 0; i < entity.recipe.getIngredients().size(); i++) {
+                        for (int i = 0; i < entity.ingredients.size(); i++) {
                             ContainerHelper.removeItem(entity.inputs, i, 1);
                         }
                         entity.cooldown = COOLDOWN;
@@ -326,6 +339,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
         recipeId = null;
         recipeSeed = null;
+        ingredients = null;
         if (tag.contains(RECIPE_KEY)) {
             recipeId = ResourceLocation.tryParse(tag.getString(RECIPE_KEY));
         } else if (tag.contains(RECIPE_SEED_KEY)) {
@@ -334,6 +348,20 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
         if (recipe != null && !recipe.getId().equals(recipeId)) {
             recipe = null;
+        }
+
+        if ((recipe != null || recipeId != null)
+                && tag.contains(INGREDIENTS_KEY)) {
+            JsonElement json = NbtOps.INSTANCE.convertTo(JsonOps.INSTANCE, Objects.requireNonNull(tag.get(INGREDIENTS_KEY)));
+            if (json.isJsonArray()) {
+                JsonArray ingredientsJson = json.getAsJsonArray();
+
+                ingredients = NonNullList.withSize(ingredientsJson.size(), ChampiumForgeIngredient.IngredientOption.EMPTY);
+                for (int i = 0; i < ingredientsJson.size(); i++) {
+                    ChampiumForgeIngredient.IngredientOption ingredient = ChampiumForgeIngredient.IngredientOption.fromJson(ingredientsJson.get(i));
+                    ingredients.set(i, ingredient);
+                }
+            }
         }
 
         count = tag.contains(COUNT_KEY) ? tag.getInt(COUNT_KEY) : COUNT_DEFAULT;
@@ -350,6 +378,14 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
         if (recipeId != null) {
             tag.putString(RECIPE_KEY, recipeId.toString());
+
+            if (ingredients != null) {
+                JsonArray ingredientsJson = new JsonArray();
+                for (ChampiumForgeIngredient.IngredientOption ingredient : ingredients) {
+                    ingredientsJson.add(ingredient.toJson());
+                }
+                tag.put(INGREDIENTS_KEY, JsonOps.INSTANCE.convertTo(NbtOps.INSTANCE, ingredientsJson));
+            }
         } else if (recipeSeed != null) {
             tag.putLong(RECIPE_SEED_KEY, recipeSeed);
         }
@@ -369,23 +405,33 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         if (recipe != null) return;
         if (level == null) return;
 
-        recipe = (ChampiumForgeRecipe) level.getRecipeManager().byKey(recipeId)
-                .filter(recipe -> recipe instanceof ChampiumForgeRecipe)
+        recipe = level.getRecipeManager().byKey(recipeId)
+                .filter(ChampiumForgeRecipe.class::isInstance)
+                .map(ChampiumForgeRecipe.class::cast)
+                .filter(ChampiumForgeRecipe::isValid)
                 .orElse(null);
+
+        if (!doIngredientsMatch()) {
+            ingredients = null;
+        }
     }
 
     public void refreshRecipe() {
         loadRecipe();
-        if (recipe != null) return;
         if (level == null || level.isClientSide()) return;
+        if (recipe != null) {
+            if (ingredients == null) {
+                reloadIngredients(recipe);
+                setChanged();
+            }
+            return;
+        }
 
         // Sort recipes by id to ensure consistent order
         List<ChampiumForgeRecipe> recipes = level.getRecipeManager()
                 .getAllRecipesFor(FTRecipeTypes.CHAMPIUM_FORGE.get())
                 .stream()
-                .filter(recipe -> // Filter out recipes without ingredients
-                        !recipe.ingredients.isEmpty() && recipe.ingredients.stream()
-                                .allMatch(ChampiumForgeBlockEntity::hasItems))
+                .filter(ChampiumForgeRecipe::isValid)
                 .sorted(Comparator.comparing(ChampiumForgeRecipe::getId))
                 .toList();
 
@@ -413,6 +459,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             uses = 0;
             count = 0;
             maxUses = recipe.maxUses == null ? null : recipe.maxUses.sample(random);
+            reloadIngredients(recipe);
 
             ChampiumForgeBlock.State state = getState();
             BlockState blockState = getBlockState();
@@ -423,11 +470,48 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             setChanged();
         } else if (recipeId != null) {
             recipeId = null;
+            ingredients = null;
             uses = 0;
             count = 0;
             maxUses = null;
             setChanged();
         }
+    }
+
+    public boolean doIngredientsMatch() {
+        if (recipe == null) return false;
+        if (ingredients == null) return false;
+        if (ingredients.size() != recipe.ingredients.size()) return false;
+
+        for (int i = 0; i < ingredients.size(); i++) {
+            ChampiumForgeIngredient ingredient = recipe.ingredients.get(i);
+            ChampiumForgeIngredient.IngredientOption ingredientOption = ingredients.get(i);
+            List<ChampiumForgeIngredient.IngredientOption> ingredientOptions = ingredient.getValidIngredientOptions();
+
+            if (ingredientOption.ingredient().isEmpty() != ingredientOptions.isEmpty()) return false;
+            if (ingredientOptions.stream().noneMatch(option -> option.equals(ingredientOption))) return false;
+        }
+
+        return true;
+    }
+
+    public void reloadIngredients(ChampiumForgeRecipe recipe) {
+        if (level == null || level.isClientSide()) return;
+
+        List<ChampiumForgeIngredient.IngredientOption> ingredientOptions = recipe.ingredients.stream()
+                .map(ingredient -> ingredient.getIngredient(level.random))
+                .toList();
+
+        ingredients = NonNullList.createWithCapacity(ingredientOptions.size());
+        ingredients.addAll(ingredientOptions);
+    }
+
+    public void syncIngredientsToPlayers() {
+        if (level == null || level.isClientSide()) return;
+
+        FTPacketHandler.INSTANCE.send(
+                PacketDistributor.TRACKING_CHUNK.with(() -> level.getChunkAt(getBlockPos())),
+                new ChampiumForgeMenuIngredientsPacket(level.dimension(), getBlockPos(), Optional.ofNullable(ingredients)));
     }
 
     @Override
@@ -455,17 +539,17 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     @Override
     public boolean canPlaceItem(int slotIndex, ItemStack stack) {
         refreshRecipe();
-        if (recipe == null) return false;
+        if (ingredients == null) return false;
         if (!hasUsesRemaining()) return false;
         if (slotIndex < 0 || slotIndex >= getContainerSize()) return false;
         if (slotIndex == NUM_INPUT_SLOTS) return false;
-        if (slotIndex >= recipe.ingredients.size()) return false;
-        if (!recipe.ingredients.get(slotIndex).test(stack)) return false;
+        if (slotIndex >= ingredients.size()) return false;
+        if (!ingredients.get(slotIndex).ingredient().test(stack)) return false;
 
         // Don't accept if there is a valid stack that has a lesser count.
-        for (int i = 0; i < recipe.ingredients.size(); i++) {
+        for (int i = 0; i < ingredients.size(); i++) {
             if (i ==  slotIndex) continue;
-            if (inputs.get(i).getCount() < inputs.get(slotIndex).getCount() && recipe.ingredients.get(i).test(stack)) {
+            if (inputs.get(i).getCount() < inputs.get(slotIndex).getCount() && ingredients.get(i).test(stack)) {
                 return false;
             }
         }
@@ -480,10 +564,10 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     @Override
     public boolean canTakeItemThroughFace(int i, ItemStack stack, Direction direction) {
         refreshRecipe();
-        if (recipe == null) return false;
+        if (ingredients == null) return false;
         if (i < 0 || i >= getContainerSize()) return false;
         if (i == NUM_INPUT_SLOTS) return direction != Direction.UP;
-        if (i >= recipe.ingredients.size()) return false;
+        if (i >= ingredients.size()) return false;
 
         return direction != Direction.DOWN;
     }
@@ -538,12 +622,5 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public void reviveCaps() {
         super.reviveCaps();
         handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
-    }
-
-    public static boolean hasItems(Ingredient ingredient) {
-        ItemStack[] items =  ingredient.getItems();
-        if (items.length == 0) return false;
-        else if (items.length > 1) return true;
-        return items[0].getItem() != Items.BARRIER;
     }
 }

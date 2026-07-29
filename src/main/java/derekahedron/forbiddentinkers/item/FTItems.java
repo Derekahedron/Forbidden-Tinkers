@@ -15,9 +15,9 @@ public class FTItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ForbiddenTinkers.MOD_ID);
 
-    public static final RegistryObject<Item> CLOWN_NOSE =
+    public static final RegistryObject<ClownNoseItem> CLOWN_NOSE =
             ITEMS.register("clown_nose", () ->
-                    new Item(
+                    new ClownNoseItem(
                             new Item.Properties()
                                     .rarity(Rarity.UNCOMMON)));
 

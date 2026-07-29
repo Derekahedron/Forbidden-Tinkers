@@ -8,9 +8,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class FTParticleTypes {
+
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =
             DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, ForbiddenTinkers.MOD_ID);
-
 
     public static final RegistryObject<SimpleParticleType> CHAMPIUM_FORGE_SMOKE =
             PARTICLE_TYPES.register("champium_forge_smoke", () ->

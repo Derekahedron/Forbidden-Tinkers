@@ -77,12 +77,12 @@ public class ChampiumForgeCategory implements IRecipeCategory<ChampiumForgeRecip
         int x;
         int y;
 
-        x = (WIDTH - SLOT_SIZE * recipe.ingredients.size() - PADDING * Math.max(recipe.ingredients.size() - 1, 0)) / 2;
+        x = (WIDTH - SLOT_SIZE * recipe.displayIngredients.size() - PADDING * Math.max(recipe.displayIngredients.size() - 1, 0)) / 2;
         y = SLOT_BORDER;
-        for (int i = 0; i < recipe.ingredients.size(); i++) {
+        for (int i = 0; i < recipe.displayIngredients.size(); i++) {
             x += SLOT_BORDER;
             builder.addInputSlot(x, y)
-                    .addIngredients(recipe.ingredients.get(i));
+                    .addIngredients(recipe.displayIngredients.get(i));
             x += ITEM_SIZE + SLOT_BORDER + PADDING;
         }
 
@@ -110,10 +110,10 @@ public class ChampiumForgeCategory implements IRecipeCategory<ChampiumForgeRecip
 
         background.draw(guiGraphics);
 
-        x = (WIDTH - SLOT_SIZE * recipe.ingredients.size() - PADDING * Math.max(recipe.ingredients.size() - 1, 0)) / 2;
+        x = (WIDTH - SLOT_SIZE * recipe.displayIngredients.size() - PADDING * Math.max(recipe.displayIngredients.size() - 1, 0)) / 2;
         y = 0;
 
-        for (int i = 0; i < recipe.ingredients.size(); i++) {
+        for (int i = 0; i < recipe.displayIngredients.size(); i++) {
             guiGraphics.blit(
                     ChampiumForgeScreen.SLOT_TEXTURE,
                     x, y,

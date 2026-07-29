@@ -5,25 +5,29 @@
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:storage_blocks/tomato"
+        "tag": "forbiddentinkers:meals"
       }
     }
   ],
-  "count": 512,
+  "count": 8,
   "ingredients": [
     {
-      "tag": "forge:storage_blocks/tomato"
+      "expand_items": true,
+      "ingredient": {
+        "tag": "forbiddentinkers:meals"
+      }
     }
   ],
   "max_uses": {
     "type": "minecraft:uniform",
     "value": {
-      "max_inclusive": 12,
-      "min_inclusive": 8
+      "max_inclusive": 96,
+      "min_inclusive": 32
     }
   },
+  "reload": true,
   "result": {
     "item": "forbiddentinkers:champium_nugget"
   },
-  "weight": 3
+  "weight": 5
 }
