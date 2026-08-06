@@ -24,7 +24,7 @@ public record HonkClownNosePacket(int slotId) {
             if (player == null) return;
 
             if (!player.gameMode.isCreative()) {
-                if (slotId < 0 || slotId > player.containerMenu.slots.size()) return;
+                if (slotId < 0 || slotId >= player.containerMenu.slots.size()) return;
                 if (!(player.containerMenu.getSlot(slotId).getItem().getItem() instanceof ClownNoseItem)) return;
             }
             FunnyModifier.playHonkSound(player, 1);

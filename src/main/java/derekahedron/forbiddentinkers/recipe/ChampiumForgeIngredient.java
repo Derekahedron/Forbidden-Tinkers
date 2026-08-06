@@ -69,7 +69,7 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
                 .sum();
         int desiredWeight = random.nextInt(maxWeight);
 
-        for (IngredientOption ingredientOption : ingredientOptions) {
+        for (IngredientOption ingredientOption : validOptions) {
             if (desiredWeight < ingredientOption.weight()) {
                 if (ingredientOption.expandItems) {
                     ItemStack[] stacks = ingredientOption.ingredient.getItems();
