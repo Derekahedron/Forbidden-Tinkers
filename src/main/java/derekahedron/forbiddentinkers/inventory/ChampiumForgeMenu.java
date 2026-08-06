@@ -1,20 +1,23 @@
 package derekahedron.forbiddentinkers.inventory;
 
 import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
-import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class ChampiumForgeMenu extends AbstractContainerMenu {
 
@@ -43,12 +46,12 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
         this.blockEntity = (ChampiumForgeBlockEntity) blockEntity;
         this.blockEntity.loadRecipe();
 
-        addChampiumForgeSlots();
+        addChampiumForgeSlots(inventory);
         addInventorySlots(inventory);
         addDataSlots(this.blockEntity.data);
     }
 
-    public void addChampiumForgeSlots() {
+    public void addChampiumForgeSlots(Inventory inventory) {
         int numIngredients = blockEntity.recipe == null ? 0 : blockEntity.recipe.ingredients.size();
         int x = (WIDTH - SLOT_SIZE * numIngredients - PADDING * Math.max(numIngredients - 1, 0)) / 2;
         int y = BORDER + FONT_MARGIN + FONT_HEIGHT + ITEM_SIZE + INPUTS_GAP;
@@ -72,6 +75,7 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
         x = (WIDTH - RESULT_SLOT_SIZE) / 2;
         y += SLOT_SIZE + PADDING + FILL_BAR_BORDER + FILL_BAR_HEIGHT + FILL_BAR_BORDER + PADDING;
         addSlot(new ResultSlot(
+                inventory.player,
                 blockEntity,
                 ChampiumForgeBlockEntity.NUM_INPUT_SLOTS,
                 x + RESULT_SLOT_BORDER,
@@ -103,10 +107,10 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
         BlockPos pos = extraData.readBlockPos();
         ResourceLocation recipeId = extraData.readOptional(FriendlyByteBuf::readResourceLocation).orElse(null);
         Integer maxUses = extraData.readOptional(FriendlyByteBuf::readInt).orElse(null);
-        NonNullList<ChampiumForgeIngredient.IngredientOption> ingredients = extraData.readOptional(
+        NonNullList<Ingredient> ingredients = extraData.readOptional(
                 (buf) -> buf.readCollection(
                         NonNullList::createWithCapacity,
-                        ChampiumForgeIngredient.IngredientOption::fromNetwork))
+                        b -> Ingredient.fromJson(GsonHelper.parse(b.readUtf()))))
                 .orElse(null);
 
         if (inventory.player.level().getBlockEntity(pos) instanceof ChampiumForgeBlockEntity blockEntity) {
@@ -180,6 +184,7 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
             super(container, index, x, y);
         }
 
+        @Override
         public boolean mayPlace(ItemStack stack) {
             blockEntity.loadRecipe();
             if (blockEntity.recipe == null) return false;
@@ -189,6 +194,7 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
             return blockEntity.ingredients.get(index).test(stack);
         }
 
+        @Override
         public boolean isActive() {
             blockEntity.loadRecipe();
             if (blockEntity.recipe == null) return false;
@@ -199,12 +205,41 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
 
     public static class ResultSlot extends Slot {
 
-        public ResultSlot(Container container, int index, int x, int y) {
+        public final Player player;
+        private int removeCount;
+
+        public ResultSlot(Player player, Container container, int index, int x, int y) {
             super(container, index, x, y);
+            this.player = player;
         }
 
+        @Override
         public boolean mayPlace(ItemStack stack) {
             return false;
+        }
+
+        @Override
+        public ItemStack remove(int count) {
+            if (hasItem()) {
+                removeCount += Math.min(count, getItem().getCount());
+            }
+
+            return super.remove(count);
+        }
+
+        @Override
+        public void onTake(Player player, ItemStack stack) {
+            stack.onCraftedBy(player.level(), player, this.removeCount);
+
+            if (container instanceof ChampiumForgeBlockEntity blockEntity
+                    && player.level() instanceof  ServerLevel serverLevel
+                    && blockEntity.recipe != null) {
+                blockEntity.popExperience(serverLevel, player.position());
+                player.awardRecipes(List.of(blockEntity.recipe));
+                player.triggerRecipeCrafted(blockEntity.recipe, List.of(stack));
+            }
+
+            super.onTake(player, stack);
         }
     }
 }

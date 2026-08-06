@@ -1,12 +1,13 @@
 package derekahedron.forbiddentinkers.network;
 
 import derekahedron.forbiddentinkers.client.network.ChampiumForgeMenuIngredientsPacketHandler;
-import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
@@ -18,7 +19,7 @@ import java.util.function.Supplier;
 public record ChampiumForgeMenuIngredientsPacket(
         ResourceKey<Level> dimension,
         BlockPos blockPos,
-        Optional<NonNullList<ChampiumForgeIngredient.IngredientOption>> ingredients) {
+        Optional<NonNullList<Ingredient>> ingredients) {
 
     public ChampiumForgeMenuIngredientsPacket(FriendlyByteBuf buffer) {
         this(
@@ -27,7 +28,7 @@ public record ChampiumForgeMenuIngredientsPacket(
                 buffer.readOptional(buf ->
                         buf.readCollection(
                                 NonNullList::createWithCapacity,
-                                ChampiumForgeIngredient.IngredientOption::fromNetwork)));
+                                b -> Ingredient.fromJson(GsonHelper.parse(b.readUtf())))));
     }
 
     public void toBytes(FriendlyByteBuf buffer) {
@@ -36,7 +37,7 @@ public record ChampiumForgeMenuIngredientsPacket(
         buffer.writeOptional(ingredients, (buf, x) ->
                 buf.writeCollection(
                         x,
-                        ChampiumForgeIngredient.IngredientOption::toNetwork));
+                        (b, ingredient) -> b.writeUtf(ingredient.toJson().toString())));
     }
 
     public void handle(Supplier<NetworkEvent.Context> context) {

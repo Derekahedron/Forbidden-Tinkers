@@ -30,19 +30,21 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
+
     public static final String INGREDIENTS_KEY = "ingredients";
     public static final String COUNT_KEY = "count";
     public static final String MAX_USES_KEY = "max_uses";
+    public static final String EXPERIENCE_KEY = "experience";
     public static final String RESULT_KEY = "result";
     public static final String WEIGHT_KEY = "weight";
     public static final String RELOAD_KEY = "reload";
     public final ResourceLocation id;
     public final int weight;
-    public final NonNullList<Ingredient> displayIngredients;
     public final NonNullList<ChampiumForgeIngredient> ingredients;
     public final int count;
     @Nullable
     public final IntProvider maxUses;
+    public final float experience;
     public final ItemStack result;
     public final boolean reloadAfterCraft;
 
@@ -51,17 +53,15 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             NonNullList<ChampiumForgeIngredient> ingredients,
             int count,
             @Nullable IntProvider maxUses,
+            float experience,
             ItemStack result,
             int weight,
             boolean reloadAfterCraft) {
         this.id = id;
         this.ingredients = ingredients;
-        this.displayIngredients = NonNullList.of(Ingredient.EMPTY, ingredients.stream()
-                .flatMap(champiumForgeIngredient -> champiumForgeIngredient.getIngredientOptions().stream())
-                .map(ChampiumForgeIngredient.IngredientOption::ingredient)
-                .toList().toArray(new Ingredient[0]));
         this.count = Math.max(count, 0);
         this.maxUses = maxUses;
+        this.experience = experience;
         this.result = result;
         this.weight = Math.max(weight, 1);
         this.reloadAfterCraft = reloadAfterCraft;
@@ -96,7 +96,10 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return displayIngredients;
+        return NonNullList.of(Ingredient.EMPTY, ingredients.stream()
+                .map(ChampiumForgeIngredient::getValidIngredients)
+                .flatMap(List::stream)
+                .toList().toArray(new Ingredient[0]));
     }
 
     @Override
@@ -153,6 +156,8 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
                         .map(Pair::getFirst).orElse(null);
             }
 
+            float experience = GsonHelper.getAsFloat(json, EXPERIENCE_KEY, 0.0F);
+
             if (!json.has(RESULT_KEY)) {
                 throw new JsonSyntaxException("Missing result, expected to find a string or object");
             }
@@ -168,15 +173,12 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
                 }
                 result = new ItemStack(resultItem);
             }
-            int weight = 1;
 
-            if (json.has(WEIGHT_KEY)) {
-                weight = GsonHelper.getAsInt(json, WEIGHT_KEY);
-            }
+            int weight = GsonHelper.getAsInt(json, WEIGHT_KEY, 1);
 
             boolean reloadAfterCraft = GsonHelper.getAsBoolean(json, RELOAD_KEY, false);
 
-            return new ChampiumForgeRecipe(id, ingredients, count, maxUses, result, weight, reloadAfterCraft);
+            return new ChampiumForgeRecipe(id, ingredients, count, maxUses, experience, result, weight, reloadAfterCraft);
         }
 
         @Override
@@ -191,13 +193,15 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             IntProvider maxUses = buffer.readOptional((buf) -> buf.readJsonWithCodec(IntProvider.POSITIVE_CODEC))
                     .orElse(null);
 
+            float experience = buffer.readFloat();
+
             ItemStack result = buffer.readItem();
 
             int weight = buffer.readInt();
 
             boolean reloadAfterCraft = buffer.readBoolean();
 
-            return new ChampiumForgeRecipe(id, ingredients, count, maxUses, result, weight, reloadAfterCraft);
+            return new ChampiumForgeRecipe(id, ingredients, count, maxUses, experience, result, weight, reloadAfterCraft);
         }
 
         @Override
@@ -217,6 +221,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
         }
     }
 
+    @SuppressWarnings("unused")
     public static class Builder implements RecipeBuilder {
         public final Item result;
         public final List<ChampiumForgeIngredient> ingredients;
@@ -224,6 +229,8 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
         public Integer count;
         @Nullable
         public IntProvider maxUses = null;
+        @Nullable
+        public Float experience;
         @Nullable
         public Integer weight;
         public boolean reloadAfterCraft = false;
@@ -265,6 +272,11 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             return this;
         }
 
+        public Builder experience(float experience) {
+            this.experience = experience;
+            return this;
+        }
+
         public Builder weight(@Nullable Integer weight) {
             this.weight = weight;
             return this;
@@ -298,6 +310,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
                     ingredients,
                     count,
                     maxUses,
+                    experience,
                     weight,
                     reloadAfterCraft));
         }
@@ -311,15 +324,26 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             @Nullable
             public final IntProvider maxUses;
             @Nullable
+            public final Float experience;
+            @Nullable
             public final Integer weight;
             public final boolean reloadAfterCraft;
 
-            public Result(ResourceLocation id, Item result, List<ChampiumForgeIngredient> ingredients, @Nullable Integer count, @Nullable IntProvider maxUses, @Nullable Integer weight, boolean reloadAfterCraft) {
+            public Result(
+                    ResourceLocation id,
+                    Item result,
+                    List<ChampiumForgeIngredient> ingredients,
+                    @Nullable Integer count,
+                    @Nullable IntProvider maxUses,
+                    @Nullable Float experience,
+                    @Nullable Integer weight,
+                    boolean reloadAfterCraft) {
                 this.id = id;
                 this.result = result;
                 this.ingredients = ingredients;
                 this.count = count;
                 this.maxUses = maxUses;
+                this.experience = experience;
                 this.weight = weight;
                 this.reloadAfterCraft = reloadAfterCraft;
             }
@@ -339,6 +363,10 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
                     JsonElement maxUsesJson = IntProvider.NON_NEGATIVE_CODEC.encodeStart(JsonOps.INSTANCE, maxUses)
                             .result().orElse(null);
                     json.add(MAX_USES_KEY, maxUsesJson);
+                }
+
+                if (experience != null) {
+                    json.addProperty(EXPERIENCE_KEY, experience);
                 }
 
                 JsonObject resultJson = new JsonObject();

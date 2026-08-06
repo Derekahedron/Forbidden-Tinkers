@@ -10,10 +10,13 @@
     }
   ],
   "count": 512,
+  "experience": 5.0,
   "ingredients": [
-    {
-      "tag": "forge:storage_blocks/rice"
-    }
+    [
+      {
+        "tag": "forge:storage_blocks/rice"
+      }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",

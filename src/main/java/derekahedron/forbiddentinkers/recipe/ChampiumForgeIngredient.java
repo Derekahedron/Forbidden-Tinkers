@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -19,7 +18,6 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
     public static final ChampiumForgeIngredient EMPTY = new ChampiumForgeIngredient(NonNullList.create());
 
     public JsonElement toJson() {
-        if (ingredientOptions.size() == 1) return ingredientOptions.get(0).toJson();
         JsonArray ingredientsJson = new JsonArray();
         for (IngredientOption ingredientOption : ingredientOptions) {
             ingredientsJson.add(ingredientOption.toJson());
@@ -28,13 +26,6 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
     }
 
     public static ChampiumForgeIngredient fromJson(JsonElement json) {
-        try {
-            IngredientOption ingredientOption = IngredientOption.fromJson(json);
-            return new ChampiumForgeIngredient(NonNullList.of(IngredientOption.EMPTY, ingredientOption));
-        } catch (JsonParseException e) {
-            // Do Nothing
-        }
-
         JsonArray optionsJson = json.getAsJsonArray();
         NonNullList<IngredientOption> ingredientOptions = NonNullList.createWithCapacity(optionsJson.size());
         for (int i = 0; i < optionsJson.size(); i++) {
@@ -59,30 +50,41 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
         return ingredientOptions;
     }
 
-    public List<IngredientOption> getValidIngredientOptions() {
+    public List<Ingredient> getValidIngredients() {
         return ingredientOptions.stream()
                 .filter(IngredientOption::isValid)
-                .flatMap(option -> !option.expandItems ? Stream.of(option)
-                        : Arrays.stream(option.ingredient.getItems()).map(item ->
-                                new IngredientOption(Ingredient.of(item), option.weight, false)))
+                .flatMap(option -> !option.expandItems
+                        ? Stream.of(option.ingredient)
+                        : Arrays.stream(option.ingredient.getItems()).map(Ingredient::of))
                 .toList();
     }
 
-    public IngredientOption getIngredient(RandomSource random) {
-        List<IngredientOption> ingredientOptions = getValidIngredientOptions();
-        if (ingredientOptions.isEmpty()) return IngredientOption.EMPTY;
-        int maxWeight = ingredientOptions.stream().mapToInt(IngredientOption::weight).sum();
+    public Ingredient getIngredient(RandomSource random) {
+        List<IngredientOption> validOptions = ingredientOptions.stream()
+                .filter(IngredientOption::isValid)
+                .toList();
+        if (validOptions.isEmpty()) return Ingredient.EMPTY;
+        int maxWeight = ingredientOptions.stream()
+                .mapToInt(IngredientOption::weight)
+                .sum();
         int desiredWeight = random.nextInt(maxWeight);
 
         for (IngredientOption ingredientOption : ingredientOptions) {
             if (desiredWeight < ingredientOption.weight()) {
-                return ingredientOption;
+                if (ingredientOption.expandItems) {
+                    ItemStack[] stacks = ingredientOption.ingredient.getItems();
+                    if (stacks.length == 0) return Ingredient.EMPTY;
+
+                    return Ingredient.of(stacks[random.nextInt(stacks.length)]);
+                } else {
+                    return ingredientOption.ingredient;
+                }
             } else {
                 desiredWeight -= ingredientOption.weight();
             }
         }
 
-        return IngredientOption.EMPTY;
+        return Ingredient.EMPTY;
     }
 
     public boolean isValid() {
@@ -90,8 +92,6 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
     }
 
     public record IngredientOption(Ingredient ingredient, int weight, boolean expandItems) {
-
-        public static final IngredientOption EMPTY = new IngredientOption(Ingredient.EMPTY, 0, false);
 
         public static final String INGREDIENT_KEY = "ingredient";
         public static final String WEIGHT_KEY = "weight";
@@ -102,10 +102,6 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
             if (items.length == 0) return false;
             else if (items.length > 1) return true;
             return items[0].getItem() != Items.BARRIER;
-        }
-
-        public boolean test(@Nullable ItemStack stack) {
-            return ingredient.test(stack);
         }
 
         public JsonElement toJson() {
@@ -159,16 +155,6 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
                     Ingredient.fromJson(GsonHelper.parse(buffer.readUtf())),
                     buffer.readInt(),
                     buffer.readBoolean());
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) return true;
-            if (!(obj instanceof IngredientOption option)) return false;
-            if (option.weight != weight) return false;
-            if (option.expandItems != expandItems) return false;
-            if (!option.ingredient.toJson().equals(ingredient.toJson())) return false;
-            return true;
         }
     }
 

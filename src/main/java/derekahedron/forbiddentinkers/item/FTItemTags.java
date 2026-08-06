@@ -7,6 +7,9 @@ import net.minecraft.world.item.Item;
 
 public class FTItemTags {
 
+    public static final TagKey<Item> HAS_ACTION =
+            ItemTags.create(FTUtil.location("has_action"));
+
     public static final TagKey<Item> BEDROCK_BRICKS =
             ItemTags.create(FTUtil.location("bedrock_bricks"));
 

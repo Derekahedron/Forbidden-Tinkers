@@ -10,61 +10,80 @@
     }
   ],
   "count": 1,
+  "experience": 10.0,
   "ingredients": [
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    },
-    {
-      "expand_items": true,
-      "ingredient": {
-        "tag": "forbiddentinkers:meals"
+    ],
+    [
+      {
+        "expand_items": true,
+        "ingredient": {
+          "tag": "forbiddentinkers:meals"
+        }
       }
-    }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",
@@ -77,5 +96,5 @@
   "result": {
     "item": "forbiddentinkers:champium_nugget"
   },
-  "weight": 5
+  "weight": 10
 }

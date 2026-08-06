@@ -59,12 +59,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         ModifierRecipeBuilder.modifier(FTModifierIds.FUNNY)
                 .addInput(FTItems.CLOWN_NOSE.get())
                 .setMaxLevel(3)
-                .setTools(CompoundIngredient.of(
-                        Ingredient.of(TinkerTags.Items.MELEE),
-                        Ingredient.of(TinkerTags.Items.HARVEST),
-                        Ingredient.of(TinkerTags.Items.RANGED),
-                        Ingredient.of(TinkerTags.Items.ARMOR),
-                        Ingredient.of(TinkerTags.Items.SHIELDS)))
+                .setTools(Ingredient.of(FTItemTags.HAS_ACTION))
                 .save(consumer, FTModifierIds.FUNNY.withPrefix(SLOTLESS_FOLDER));
 
         Ingredient dropsItems = CompoundIngredient.of(

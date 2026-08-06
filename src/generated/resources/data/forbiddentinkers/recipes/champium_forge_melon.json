@@ -1,10 +1,13 @@
 {
   "type": "forbiddentinkers:champium_forge",
   "count": 512,
+  "experience": 10.0,
   "ingredients": [
-    {
-      "item": "minecraft:melon"
-    }
+    [
+      {
+        "item": "minecraft:melon"
+      }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",

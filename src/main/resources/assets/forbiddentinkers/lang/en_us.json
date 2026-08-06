@@ -104,6 +104,15 @@
 
 
   "jei.forbiddentinkers.champium_forge.count": "Must be consumed %1$s times",
+  "jei.forbiddentinkers.champium_forge.chance": "%1$s%% chance for this ingredient to be used",
+  "jei.forbiddentinkers.champium_forge.chance.tooltip": "Click to see the next ingredient",
+  "jei.forbiddentinkers.champium_forge.uses": "%1$sx",
+  "jei.forbiddentinkers.champium_forge.uses.range": "%1$sx-%2$sx",
+  "jei.forbiddentinkers.champium_forge.uses.tooltip": "Can be used %1$s times",
+  "jei.forbiddentinkers.champium_forge.uses.tooltip.single": "Can be used 1 time",
+  "jei.forbiddentinkers.champium_forge.uses.tooltip.range": "Can be used %1$s-%2$s times",
+  "jei.forbiddentinkers.champium_forge.recipe_chance": "%1$s%%",
+  "jei.forbiddentinkers.champium_forge.recipe_chance.tooltip": "%1$s%% chance for this recipe to be used",
 
 
   "advancements.forbiddentinkers.find_champium_forge.title": "The Power of the Sun",

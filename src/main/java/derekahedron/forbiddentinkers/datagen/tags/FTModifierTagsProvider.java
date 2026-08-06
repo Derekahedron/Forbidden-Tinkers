@@ -21,12 +21,12 @@ public class FTModifierTagsProvider extends AbstractModifierTagProvider {
 
     @Override
     protected void addTags() {
-        tag(TinkerTags.Modifiers.GENERAL_SLOTLESS)
-                .add(FTModifierIds.FUNNY);
-
         tag(TinkerTags.Modifiers.BONUS_SLOTLESS)
                 .add(FTModifierIds.OVERLOADED)
                 .add(FTModifierIds.AUGMENTATION);
+
+        tag(TinkerTags.Modifiers.COSMETIC_SLOTLESS)
+                .add(FTModifierIds.FUNNY);
 
         tag(TinkerTags.Modifiers.EXTRACT_MODIFIER_BLACKLIST)
                 .add(FTModifierIds.OVERLOADED)

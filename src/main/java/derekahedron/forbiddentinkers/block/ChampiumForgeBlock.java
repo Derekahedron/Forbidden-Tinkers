@@ -3,7 +3,6 @@ package derekahedron.forbiddentinkers.block;
 import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
 import derekahedron.forbiddentinkers.block.entity.FTBlockEntityTypes;
 import derekahedron.forbiddentinkers.particle.FTParticleTypes;
-import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -93,7 +92,7 @@ public class ChampiumForgeBlock extends BaseEntityBlock implements EntityBlock, 
                             (buf, ingredients) ->
                                     buf.writeCollection(
                                             ingredients,
-                                            ChampiumForgeIngredient.IngredientOption::toNetwork));
+                                            (b, ingredient) -> b.writeUtf(ingredient.toJson().toString())));
                 });
             }
         }
@@ -139,8 +138,9 @@ public class ChampiumForgeBlock extends BaseEntityBlock implements EntityBlock, 
     public void onRemove(BlockState oldState, Level level, BlockPos pos, BlockState newState, boolean moved) {
         if (!oldState.is(newState.getBlock())) {
             if (level.getBlockEntity(pos) instanceof ChampiumForgeBlockEntity blockEntity) {
-                if (level instanceof ServerLevel) {
+                if (level instanceof ServerLevel serverLevel) {
                     Containers.dropContents(level, pos, blockEntity);
+                    blockEntity.popExperience(serverLevel, pos.getCenter());
                 }
 
                 level.updateNeighbourForOutputSignal(pos, this);

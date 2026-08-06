@@ -10,10 +10,13 @@
     }
   ],
   "count": 512,
+  "experience": 5.0,
   "ingredients": [
-    {
-      "tag": "forge:storage_blocks/onion"
-    }
+    [
+      {
+        "tag": "forge:storage_blocks/onion"
+      }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",

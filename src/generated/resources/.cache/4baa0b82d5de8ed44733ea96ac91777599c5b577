@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-12T20:48:41.1490407	Forbidden Tinkers Modifier Recipes
+// 1.20.1	2026-07-31T03:13:13.9379876	Forbidden Tinkers Modifier Recipes
 2d9c86d509a0e99ddd606a2d8ed65442b9b10d1f data/forbiddentinkers/recipes/tools/modifiers/ability/wormhole.json
 8ed045617a8bf693929e854b4d16f1254b825e4b data/forbiddentinkers/recipes/tools/modifiers/augmentation/blue_skies_tcon/aquite.json
 d6e4302db4b5047405cbae7564651534fb89b7dc data/forbiddentinkers/recipes/tools/modifiers/augmentation/blue_skies_tcon/charoite.json
@@ -186,5 +186,5 @@ c87421acb83716b8ac15dd2d09f46be03c920a7a data/forbiddentinkers/recipes/tools/mod
 6610d1f54af3bc89f1e2e31af804757763412533 data/forbiddentinkers/recipes/tools/modifiers/salvage/ability/wormhole.json
 8eda9a736ff78cbc54e0a733ae50b041595dd4ba data/forbiddentinkers/recipes/tools/modifiers/salvage/boon/champium_boon.json
 6e21942cf245bcc17ca93a0cf7c0ed104082f98d data/forbiddentinkers/recipes/tools/modifiers/salvage/upgrade/disposing.json
-63852adf896a816fa2d5ef59ed6828720ea166e3 data/forbiddentinkers/recipes/tools/modifiers/slotless/funny.json
+83af6b23e445b3054179d770ab1d4b10ec1301d4 data/forbiddentinkers/recipes/tools/modifiers/slotless/funny.json
 fb10639a76be73995fcd8f46115217e48fec5b6b data/forbiddentinkers/recipes/tools/modifiers/upgrade/disposing.json

@@ -188,6 +188,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.HAY_BLOCK)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(consumer, FTUtil.location("champium_forge_wheat_block"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
@@ -195,6 +196,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "carrot"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "carrot")), FTUtil.location("champium_forge_carrot_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
@@ -209,6 +211,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.CARROT)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(notHasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "carrot")), FTUtil.location("champium_forge_carrot"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
@@ -216,6 +219,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "potato"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "potato")), FTUtil.location("champium_forge_potato_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
@@ -230,6 +234,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.POTATO)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(notHasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "potato")), FTUtil.location("champium_forge_potato"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
@@ -237,6 +242,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "beetroot"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "beetroot")), FTUtil.location("champium_forge_beetroot_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
@@ -251,6 +257,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.BEETROOT)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(notHasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "beetroot")), FTUtil.location("champium_forge_beetroot"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
@@ -258,30 +265,35 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "cabbage"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "cabbage")), FTUtil.location("champium_forge_cabbage_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "tomato"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "tomato")), FTUtil.location("champium_forge_tomato_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "onion"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "onion")), FTUtil.location("champium_forge_onion_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(3)
                 .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "rice"))
                 .count(8 * 64)
                 .maxUses(UniformInt.of(8, 12))
+                .experience(5.0F)
                 .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "rice")), FTUtil.location("champium_forge_rice_block"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.MELON)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_melon"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.PUMPKIN)
@@ -289,6 +301,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.PUMPKIN)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_pumpkin"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.BAMBOO_BLOCK)
@@ -296,6 +309,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.BAMBOO_BLOCK)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_bamboo_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.DRIED_KELP_BLOCK)
@@ -303,6 +317,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.DRIED_KELP_BLOCK)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_dried_kelp_block"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.NETHER_WART)
@@ -316,6 +331,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.NETHER_WART)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_nether_wart"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.GLOW_BERRIES)
@@ -329,6 +345,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.GLOW_BERRIES)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_glow_berries"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.SWEET_BERRIES)
@@ -342,6 +359,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.SWEET_BERRIES)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_sweet_berries"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.SUGAR_CANE)
@@ -349,19 +367,11 @@ public class FTRecipeProvider extends RecipeProvider {
                 .addIngredient(Items.SUGAR_CANE)
                 .count(8 * 64)
                 .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_sugar_cane"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
-                .weight(5)
-                .addIngredient(new ChampiumForgeIngredient.Builder()
-                        .addIngredient(Ingredient.of(FTItemTags.MEALS), true)
-                        .build())
-                .count(8)
-                .reloadAfterCraft()
-                .maxUses(UniformInt.of(32, 96))
-                .save(hasTag(consumer, FTItemTags.MEALS), FTUtil.location("champium_forge_meals"));
-        new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
-                .weight(5)
+                .weight(10)
                 .addIngredient(new ChampiumForgeIngredient.Builder()
                         .addIngredient(Ingredient.of(FTItemTags.MEALS), true)
                         .build())
@@ -392,6 +402,7 @@ public class FTRecipeProvider extends RecipeProvider {
                 .count(1)
                 .reloadAfterCraft()
                 .maxUses(UniformInt.of(32, 96))
+                .experience(10.0F)
                 .save(hasTag(consumer, FTItemTags.MEALS), FTUtil.location("champium_forge_multiple_meals"));
     }
 

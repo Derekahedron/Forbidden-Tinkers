@@ -7,34 +7,53 @@
     }
   ],
   "count": 512,
+  "experience": 5.0,
   "ingredients": [
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    }
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:potato"
+      }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",

@@ -59,7 +59,7 @@ public class FTPlacedFeatures {
                 context.lookup(Registries.CONFIGURED_FEATURE)
                         .getOrThrow(FTConfiguredFeatures.BEDROCK_CHAMPIUM_ORE),
                 List.of(
-                        RarityFilter.onAverageOnceEvery(4),
+                        RarityFilter.onAverageOnceEvery(16),
                         HeightRangePlacement.uniform(
                                 VerticalAnchor.aboveBottom(1),
                                 VerticalAnchor.aboveBottom(4)),

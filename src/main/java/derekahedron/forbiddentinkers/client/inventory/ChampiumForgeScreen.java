@@ -1,8 +1,6 @@
 package derekahedron.forbiddentinkers.client.inventory;
 
-import derekahedron.forbiddentinkers.block.entity.ChampiumForgeBlockEntity;
 import derekahedron.forbiddentinkers.inventory.ChampiumForgeMenu;
-import derekahedron.forbiddentinkers.recipe.ChampiumForgeIngredient;
 import derekahedron.forbiddentinkers.recipe.ChampiumForgeRecipe;
 import derekahedron.forbiddentinkers.util.FTUtil;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.List;
 
@@ -61,7 +60,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         renderTooltip(graphics, mouseX, mouseY);
     }
 
-    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe, List<ChampiumForgeIngredient.IngredientOption> ingredients, int mouseX, int mouseY) {
+    public void renderRecipe(GuiGraphics graphics, ChampiumForgeRecipe recipe, List<Ingredient> ingredients, int mouseX, int mouseY) {
         int numIngredients = ingredients.size();
         int x = (imageWidth - SLOT_SIZE * numIngredients - PADDING * Math.max(numIngredients - 1, 0)) / 2;
         int y = BORDER + FONT_MARGIN + FONT_HEIGHT;
@@ -72,7 +71,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
             int slotX = baseX + x + i * (SLOT_SIZE + PADDING);
             int slotY = baseY + y;
 
-            ItemStack[] displayStacks = ingredients.get(i).ingredient().getItems();
+            ItemStack[] displayStacks = ingredients.get(i).getItems();
             if (displayStacks.length > 0) {
                 ItemStack displayStack = displayStacks[(int) cycles % displayStacks.length];
 
@@ -113,13 +112,7 @@ public class ChampiumForgeScreen extends AbstractContainerScreen<ChampiumForgeMe
         x = (imageWidth - FILL_BAR_WIDTH) / 2;
         y += ITEM_SIZE + INPUTS_GAP + SLOT_SIZE + PADDING + FILL_BAR_BORDER;
 
-        float fill;
-        if (menu.blockEntity.cooldown > 0 && menu.blockEntity.count > 0) {
-            float cooldownFill = 1 - (float) menu.blockEntity.cooldown / ChampiumForgeBlockEntity.COOLDOWN;
-            fill = Mth.lerp(cooldownFill, menu.blockEntity.count - 1, menu.blockEntity.count) / recipe.count;
-        } else {
-            fill = (float) menu.blockEntity.count / recipe.count;
-        }
+        float fill = (float) menu.blockEntity.count / recipe.count;
         int barWidth = Mth.ceil(FILL_BAR_WIDTH * fill);
 
         graphics.blit(FILL_BAR_TEXTURE,

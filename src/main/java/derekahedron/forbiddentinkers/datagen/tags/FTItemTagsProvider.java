@@ -123,6 +123,14 @@ public class FTItemTagsProvider extends ItemTagsProvider {
         tag(InvExpItemTags.SackWeight.HALF)
                 .add(FTItems.FORBIDDEN_TOME.get());
 
+        tag(FTItemTags.HAS_ACTION)
+                .addOptionalTag(TinkerTags.Items.MELEE)
+                .addOptionalTag(TinkerTags.Items.HARVEST)
+                .addOptionalTag(TinkerTags.Items.RANGED)
+                .addOptionalTag(TinkerTags.Items.ARMOR)
+                .addOptionalTag(TinkerTags.Items.SHIELDS)
+                .addOptionalTag(TinkerTags.Items.THROWABLE);
+
         tag(FTItemTags.BEDROCK_BRICKS)
                 .add(FTItems.BEDROCK_BRICKS.get())
                 .add(FTItems.BEDROCK_BRICK_STAIRS.get())

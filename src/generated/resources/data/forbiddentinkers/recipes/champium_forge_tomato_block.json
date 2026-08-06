@@ -10,10 +10,13 @@
     }
   ],
   "count": 512,
+  "experience": 5.0,
   "ingredients": [
-    {
-      "tag": "forge:storage_blocks/tomato"
-    }
+    [
+      {
+        "tag": "forge:storage_blocks/tomato"
+      }
+    ]
   ],
   "max_uses": {
     "type": "minecraft:uniform",

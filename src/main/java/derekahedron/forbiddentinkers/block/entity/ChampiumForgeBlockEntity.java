@@ -26,14 +26,17 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -48,10 +51,10 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
+
     public static final Component TITLE = Component.translatable("container." + ForbiddenTinkers.MOD_ID + ".champium_forge");
     public static final int COUNT_INDEX = 0;
     public static final int USES_INDEX = 1;
-    public static final int COOLDOWN_INDEX = 2;
     public static final int NUM_INPUT_SLOTS = 9;
     public static final String RECIPE_SEED_KEY = "RecipeSeed";
     public static final String RECIPE_KEY = "Recipe";
@@ -59,6 +62,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public static final String COUNT_KEY = "Count";
     public static final String USES_KEY = "Uses";
     public static final String MAX_USES_KEY = "MaxUses";
+    public static final String TIMES_USED_KEY = "TimesUsed";
     public static final String COOLDOWN_KEY = "Cooldown";
     public static final String BURN_COOLDOWN_KEY = "BurnCooldown";
     public static final String SMOKE_COOLDOWN_KEY = "SmokeCooldown";
@@ -66,6 +70,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public static final int USES_DEFAULT = 0;
     @Nullable
     public static final Integer MAX_USES_DEFAULT = null;
+    public static final int TIMES_USED_DEFAULT = 0;
     public static final int COOLDOWN_DEFAULT = 0;
     public static final int COOLDOWN = 2;
     public static final int BURN_COOLDOWN_DEFAULT = 0;
@@ -79,11 +84,12 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     @Nullable
     public ChampiumForgeRecipe recipe = null;
     @Nullable
-    public NonNullList<ChampiumForgeIngredient.IngredientOption> ingredients;
+    public NonNullList<Ingredient> ingredients;
     public int count = 0;
     public int uses = 0;
     @Nullable
     public Integer maxUses;
+    public int timesUsed = 0;
     public int cooldown = 0;
     public int burnCooldown = 0;
     public int smokeCooldown = 0;
@@ -238,7 +244,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                             }
                             changed = true;
 
-                            if (entity.recipe.reloadAfterCraft) {
+                            if (entity.recipe.reloadAfterCraft && entity.hasUsesRemaining()) {
                                 entity.reloadIngredients(entity.recipe);
                                 entity.syncIngredientsToPlayers();
                             }
@@ -261,6 +267,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                         entity.cooldown = COOLDOWN;
                         entity.burnCooldown = BURN_COOLDOWN;
                         entity.count++;
+                        entity.timesUsed++;
 
                         changed = true;
                     }
@@ -356,9 +363,9 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             if (json.isJsonArray()) {
                 JsonArray ingredientsJson = json.getAsJsonArray();
 
-                ingredients = NonNullList.withSize(ingredientsJson.size(), ChampiumForgeIngredient.IngredientOption.EMPTY);
+                ingredients = NonNullList.withSize(ingredientsJson.size(), Ingredient.EMPTY);
                 for (int i = 0; i < ingredientsJson.size(); i++) {
-                    ChampiumForgeIngredient.IngredientOption ingredient = ChampiumForgeIngredient.IngredientOption.fromJson(ingredientsJson.get(i));
+                    Ingredient ingredient = Ingredient.fromJson(ingredientsJson.get(i));
                     ingredients.set(i, ingredient);
                 }
             }
@@ -367,6 +374,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         count = tag.contains(COUNT_KEY) ? tag.getInt(COUNT_KEY) : COUNT_DEFAULT;
         uses = tag.contains(USES_KEY) ? tag.getInt(USES_KEY) : USES_DEFAULT;
         maxUses = tag.contains(MAX_USES_KEY) ? Integer.valueOf(tag.getInt(MAX_USES_KEY)) : MAX_USES_DEFAULT;
+        timesUsed = tag.contains(TIMES_USED_KEY) ? tag.getInt(TIMES_USED_KEY) : TIMES_USED_DEFAULT;
         cooldown = tag.contains(COOLDOWN_KEY) ? tag.getInt(COOLDOWN_KEY) : COOLDOWN_DEFAULT;
         burnCooldown = tag.contains(BURN_COOLDOWN_KEY) ? tag.getInt(BURN_COOLDOWN_KEY) : BURN_COOLDOWN_DEFAULT;
         smokeCooldown = tag.contains(SMOKE_COOLDOWN_KEY) ? tag.getInt(SMOKE_COOLDOWN_KEY) : SMOKE_COOLDOWN_DEFAULT;
@@ -381,7 +389,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
             if (ingredients != null) {
                 JsonArray ingredientsJson = new JsonArray();
-                for (ChampiumForgeIngredient.IngredientOption ingredient : ingredients) {
+                for (Ingredient ingredient : ingredients) {
                     ingredientsJson.add(ingredient.toJson());
                 }
                 tag.put(INGREDIENTS_KEY, JsonOps.INSTANCE.convertTo(NbtOps.INSTANCE, ingredientsJson));
@@ -393,11 +401,28 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         if (count != COUNT_DEFAULT) tag.putInt(COUNT_KEY, count);
         if (uses != USES_DEFAULT) tag.putInt(USES_KEY, uses);
         if (maxUses != MAX_USES_DEFAULT) tag.putInt(MAX_USES_KEY, maxUses);
+        if (timesUsed != TIMES_USED_DEFAULT) tag.putInt(TIMES_USED_KEY, timesUsed);
         if (cooldown != COOLDOWN_DEFAULT) tag.putInt(COOLDOWN_KEY, cooldown);
         if (burnCooldown != BURN_COOLDOWN_DEFAULT) tag.putInt(BURN_COOLDOWN_KEY, burnCooldown);
         if (smokeCooldown != SMOKE_COOLDOWN_DEFAULT) tag.putInt(SMOKE_COOLDOWN_KEY, smokeCooldown);
 
         ContainerHelper.saveAllItems(tag, inputs, false);
+    }
+
+    public void popExperience(ServerLevel level, Vec3 position) {
+        loadRecipe();
+        if (recipe == null) return;
+
+        float expGranted = recipe.experience * timesUsed;
+
+        int levels = Mth.floor(expGranted);
+        double chance = Mth.frac(expGranted);
+        if (chance != 0.0F && Math.random() < chance) {
+            levels++;
+        }
+
+        ExperienceOrb.award(level, position, levels);
+        timesUsed = 0;
     }
 
     public void loadRecipe() {
@@ -410,6 +435,10 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                 .map(ChampiumForgeRecipe.class::cast)
                 .filter(ChampiumForgeRecipe::isValid)
                 .orElse(null);
+
+        if (recipe == null) {
+            timesUsed = 0;
+        }
 
         if (!doIngredientsMatch()) {
             ingredients = null;
@@ -485,11 +514,15 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
         for (int i = 0; i < ingredients.size(); i++) {
             ChampiumForgeIngredient ingredient = recipe.ingredients.get(i);
-            ChampiumForgeIngredient.IngredientOption ingredientOption = ingredients.get(i);
-            List<ChampiumForgeIngredient.IngredientOption> ingredientOptions = ingredient.getValidIngredientOptions();
+            Ingredient ingredientOption = ingredients.get(i);
+            List<Ingredient> validIngredients = ingredient.getValidIngredients();
 
-            if (ingredientOption.ingredient().isEmpty() != ingredientOptions.isEmpty()) return false;
-            if (ingredientOptions.stream().noneMatch(option -> option.equals(ingredientOption))) return false;
+            if (validIngredients.isEmpty()) {
+                if (!ingredientOption.isEmpty()) return false;
+            } else {
+                JsonElement json = ingredientOption.toJson();
+                if (validIngredients.stream().noneMatch(validIngredient -> validIngredient.toJson().equals(json))) return false;
+            }
         }
 
         return true;
@@ -498,12 +531,12 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
     public void reloadIngredients(ChampiumForgeRecipe recipe) {
         if (level == null || level.isClientSide()) return;
 
-        List<ChampiumForgeIngredient.IngredientOption> ingredientOptions = recipe.ingredients.stream()
+        List<Ingredient> chosenIngredients = recipe.ingredients.stream()
                 .map(ingredient -> ingredient.getIngredient(level.random))
                 .toList();
 
-        ingredients = NonNullList.createWithCapacity(ingredientOptions.size());
-        ingredients.addAll(ingredientOptions);
+        ingredients = NonNullList.createWithCapacity(chosenIngredients.size());
+        ingredients.addAll(chosenIngredients);
     }
 
     public void syncIngredientsToPlayers() {
@@ -544,7 +577,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
         if (slotIndex < 0 || slotIndex >= getContainerSize()) return false;
         if (slotIndex == NUM_INPUT_SLOTS) return false;
         if (slotIndex >= ingredients.size()) return false;
-        if (!ingredients.get(slotIndex).ingredient().test(stack)) return false;
+        if (!ingredients.get(slotIndex).test(stack)) return false;
 
         // Don't accept if there is a valid stack that has a lesser count.
         for (int i = 0; i < ingredients.size(); i++) {
@@ -579,7 +612,6 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             return switch (index) {
                 case COUNT_INDEX -> count;
                 case USES_INDEX -> uses;
-                case COOLDOWN_INDEX -> cooldown;
                 default -> 0;
             };
         }
@@ -589,13 +621,12 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             switch (index) {
                 case COUNT_INDEX -> count = value;
                 case USES_INDEX -> uses = value;
-                case COOLDOWN_INDEX -> cooldown = value;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
     }
 

@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "#tconstruct:modifiable/melee",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:modifiable/harvest",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:modifiable/ranged",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:modifiable/armor",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:modifiable/shields",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:throwable",
+      "required": false
+    }
+  ]
+}
