@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOptions) {
 
-    public static final ChampiumForgeIngredient EMPTY = new ChampiumForgeIngredient(NonNullList.create());
+    public static final ChampiumForgeIngredient EMPTY = new ChampiumForgeIngredient(NonNullList.createWithCapacity(0));
 
     public JsonElement toJson() {
         JsonArray ingredientsJson = new JsonArray();
@@ -64,7 +64,7 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
                 .filter(IngredientOption::isValid)
                 .toList();
         if (validOptions.isEmpty()) return Ingredient.EMPTY;
-        int maxWeight = ingredientOptions.stream()
+        int maxWeight = validOptions.stream()
                 .mapToInt(IngredientOption::weight)
                 .sum();
         int desiredWeight = random.nextInt(maxWeight);

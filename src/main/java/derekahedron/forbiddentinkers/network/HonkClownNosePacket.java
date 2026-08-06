@@ -22,10 +22,12 @@ public record HonkClownNosePacket(int slotId) {
         context.get().enqueueWork(() -> {
             ServerPlayer player = context.get().getSender();
             if (player == null) return;
-            if (player.gameMode.isCreative()
-                    || player.containerMenu.getSlot(slotId).getItem().getItem() instanceof ClownNoseItem) {
-                FunnyModifier.playHonkSound(player, 1);
+
+            if (!player.gameMode.isCreative()) {
+                if (slotId < 0 || slotId > player.containerMenu.slots.size()) return;
+                if (!(player.containerMenu.getSlot(slotId).getItem().getItem() instanceof ClownNoseItem)) return;
             }
+            FunnyModifier.playHonkSound(player, 1);
         });
         context.get().setPacketHandled(true);
     }

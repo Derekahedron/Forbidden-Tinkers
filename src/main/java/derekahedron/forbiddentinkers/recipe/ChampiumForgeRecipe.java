@@ -213,6 +213,8 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             buffer.writeOptional(Optional.ofNullable(recipe.maxUses),
                     (buf, val) -> buf.writeJsonWithCodec(IntProvider.CODEC, val));
 
+            buffer.writeFloat(recipe.experience);
+
             buffer.writeItem(recipe.result);
 
             buffer.writeInt(recipe.weight);

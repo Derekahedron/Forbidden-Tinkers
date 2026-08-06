@@ -229,7 +229,8 @@ public class ChampiumForgeMenu extends AbstractContainerMenu {
 
         @Override
         public void onTake(Player player, ItemStack stack) {
-            stack.onCraftedBy(player.level(), player, this.removeCount);
+            stack.onCraftedBy(player.level(), player, removeCount);
+            removeCount = 0;
 
             if (container instanceof ChampiumForgeBlockEntity blockEntity
                     && player.level() instanceof  ServerLevel serverLevel
