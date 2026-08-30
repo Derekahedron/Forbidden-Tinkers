@@ -362,6 +362,26 @@ public class FTRecipeProvider extends RecipeProvider {
                 .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_sweet_berries"));
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .addIngredient(Items.COCOA_BEANS)
+                .count(8 * 64)
+                .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
+                .save(consumer, FTUtil.location("champium_forge_cocoa_beans"));
+        new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
+                .addIngredient(MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "salmonberries"))
+                .count(8 * 64)
+                .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
+                .save(hasTag(consumer, MTUtil.childTag(Tags.Items.STORAGE_BLOCKS, "salmonberries")), FTUtil.location("champium_forge_salmonberries_block"));
+        new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .addIngredient(Items.SUGAR_CANE)
                 .addIngredient(Items.SUGAR_CANE)
                 .addIngredient(Items.SUGAR_CANE)
@@ -369,6 +389,14 @@ public class FTRecipeProvider extends RecipeProvider {
                 .maxUses(UniformInt.of(32, 64))
                 .experience(10.0F)
                 .save(consumer, FTUtil.location("champium_forge_sugar_cane"));
+        new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
+                .addIngredient(Items.CACTUS)
+                .addIngredient(Items.CACTUS)
+                .addIngredient(Items.CACTUS)
+                .count(8 * 64)
+                .maxUses(UniformInt.of(32, 64))
+                .experience(10.0F)
+                .save(consumer, FTUtil.location("champium_forge_cactus"));
 
         new ChampiumForgeRecipe.Builder(FTItems.CHAMPIUM_NUGGET.get())
                 .weight(10)

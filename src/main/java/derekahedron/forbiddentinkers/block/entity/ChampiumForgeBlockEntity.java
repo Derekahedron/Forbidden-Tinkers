@@ -440,7 +440,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
             timesUsed = 0;
         }
 
-        if (!doIngredientsMatch()) {
+        if (!level.isClientSide && !doIngredientsMatch()) {
             ingredients = null;
         }
     }

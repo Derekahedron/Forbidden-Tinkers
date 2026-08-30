@@ -1,0 +1,62 @@
+{
+  "type": "forbiddentinkers:champium_forge",
+  "count": 512,
+  "experience": 10.0,
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ]
+  ],
+  "max_uses": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 64,
+      "min_inclusive": 32
+    }
+  },
+  "result": {
+    "item": "forbiddentinkers:champium_nugget"
+  }
+}

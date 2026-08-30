@@ -6,7 +6,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,7 +27,7 @@ public record ChampiumForgeMenuIngredientsPacket(
                 buffer.readOptional(buf ->
                         buf.readCollection(
                                 NonNullList::createWithCapacity,
-                                b -> Ingredient.fromJson(GsonHelper.parse(b.readUtf())))));
+                                Ingredient::fromNetwork)));
     }
 
     public void toBytes(FriendlyByteBuf buffer) {
@@ -37,7 +36,7 @@ public record ChampiumForgeMenuIngredientsPacket(
         buffer.writeOptional(ingredients, (buf, x) ->
                 buf.writeCollection(
                         x,
-                        (b, ingredient) -> b.writeUtf(ingredient.toJson().toString())));
+                        (b, ingredient) -> ingredient.toNetwork(b)));
     }
 
     public void handle(Supplier<NetworkEvent.Context> context) {

@@ -3,7 +3,6 @@ package derekahedron.forbiddentinkers.recipe;
 import com.google.gson.*;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -145,14 +144,14 @@ public record ChampiumForgeIngredient(NonNullList<IngredientOption> ingredientOp
         }
 
         public static void toNetwork(FriendlyByteBuf buffer, IngredientOption option) {
-            buffer.writeUtf(option.ingredient.toJson().toString());
+            option.ingredient.toNetwork(buffer);
             buffer.writeInt(option.weight);
             buffer.writeBoolean(option.expandItems);
         }
 
         public static IngredientOption fromNetwork(FriendlyByteBuf buffer) {
             return new IngredientOption(
-                    Ingredient.fromJson(GsonHelper.parse(buffer.readUtf())),
+                    Ingredient.fromNetwork(buffer),
                     buffer.readInt(),
                     buffer.readBoolean());
         }
