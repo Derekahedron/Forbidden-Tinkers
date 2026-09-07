@@ -16,9 +16,11 @@ import slimeknights.tconstruct.tools.data.ModifierIds;
 import java.util.Optional;
 
 public class FTDivineSlotsProvider {
+
+    @SuppressWarnings("deprecation")
     public static void bootstrap(BootstapContext<DivineSlots> context) {
         registerUpgrade(context, ModifierIds.experienced, 1, 5);
-        registerUpgrade(context, TinkerModifiers.magnetic.getId(), 1, 5);
+        registerUpgrade(context, ModifierIds.magnetic, 1, 5);
         registerUpgrade(context, ModifierIds.overforced, 1, 5);
         registerUpgrade(context, ModifierIds.reinforced, 1, 5);
         registerUpgrade(context, ModifierIds.smelting, 1, 4);
@@ -28,11 +30,11 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, ModifierIds.freezing, 1, 3);
         registerUpgrade(context, FTModifierIds.HEART_DROPPING, 1, 3);
         registerUpgrade(context, ModifierIds.lure, 1, 5);
-        registerUpgrade(context, TinkerModifiers.knockback.getId(), 1, 3);
-        registerUpgrade(context, TinkerModifiers.necrotic.getId(), 1, 5);
-        registerUpgrade(context, TinkerModifiers.padded.getId(), 1, 3);
+        registerUpgrade(context, ModifierIds.knockback, 1, 3);
+        registerUpgrade(context, ModifierIds.necrotic, 1, 5);
+        registerUpgrade(context, ModifierIds.padded, 1, 3);
         registerUpgrade(context, TinkerModifiers.severing.getId(), 1, 3);
-        registerUpgrade(context, TinkerModifiers.sweeping.getId(), 1, 3);
+        registerUpgrade(context, ModifierIds.sweeping, 1, 3);
         registerUpgrade(context, ModifierIds.antiaquatic, 1, 5);
         registerUpgrade(context, ModifierIds.baneOfSssss, 1, 5);
         registerUpgrade(context, ModifierIds.cooling, 1, 5);
@@ -62,7 +64,8 @@ public class FTDivineSlotsProvider {
         registerUpgrade(context, ModifierIds.swiftSneak, 1, 5);
         registerUpgrade(context, ModifierIds.depthStrider, 1, 3);
         registerUpgrade(context, ModifierIds.featherFalling, 1, 2);
-        registerUpgrade(context, TinkerModifiers.soulspeed.getId(), 1, 3);
+        registerUpgrade(context, ModifierIds.featherFall, 1, 2);
+        registerUpgrade(context, ModifierIds.soulspeed, 1, 3);
         registerUpgrade(context, ModifierIds.returning, 1, 4);
         registerUpgrade(context, new ModifierId(new ResourceLocation("constructs_casting:expedient")), 1, 3);
         registerUpgrade(context, new ModifierId(new ResourceLocation("constructs_casting:swiftcasting")), 1, 3);

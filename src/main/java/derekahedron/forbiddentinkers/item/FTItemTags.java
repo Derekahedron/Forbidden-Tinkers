@@ -21,4 +21,7 @@ public class FTItemTags {
 
     public static final TagKey<Item> MEALS =
             ItemTags.create(FTUtil.location("meals"));
+
+    public static final TagKey<Item> ODD_MEALS =
+            ItemTags.create(FTUtil.location("odd_meals"));
 }

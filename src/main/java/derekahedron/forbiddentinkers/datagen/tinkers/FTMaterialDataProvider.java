@@ -18,9 +18,9 @@ public class FTMaterialDataProvider extends AbstractMaterialDataProvider {
 
     @Override
     protected void addMaterials() {
-        addMaterial(FTMaterialIds.CHAMPIUM,
-                5,
-                1000,
-                false);
+        material(FTMaterialIds.CHAMPIUM)
+                .tier(5)
+                .sort(1000)
+                .craftable(false);
     }
 }

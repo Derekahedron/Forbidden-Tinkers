@@ -16,6 +16,7 @@ public class FeastingModifier extends NoLevelsModifier implements PickupXpModifi
     public static final float ADDITIONAL_SATURATION = 2.0F;
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,

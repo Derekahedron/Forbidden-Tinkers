@@ -45,6 +45,7 @@ public class FunnyModifier extends Modifier implements
         ShieldBlockModifierHook {
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,

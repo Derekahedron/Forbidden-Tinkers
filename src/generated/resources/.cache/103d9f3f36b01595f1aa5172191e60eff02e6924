@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-05T19:16:39.9829162	Registries
+// 1.20.1	2026-09-07T17:31:25.609613	Registries
 be0f908e545ad71e7b73e582a7e6a0a60c2434c4 data/forbiddentinkers/damage_type/molten_champium.json
 35a85191f9b0f746bb7c8460d74068084905f49d data/forbiddentinkers/forbiddentinkers/divine_slots/antiaquatic.json
 0669d51a5cb544104a5a4533d37806f9501376ab data/forbiddentinkers/forbiddentinkers/divine_slots/bane_of_sssss.json
@@ -18,6 +18,7 @@ d5d71fe1d45696aea2b89f5fb6af81e3f914a489 data/forbiddentinkers/forbiddentinkers/
 18d1e4eacf634343ee920ff03c036ac23e2013f1 data/forbiddentinkers/forbiddentinkers/divine_slots/evocation_upgrade_affinity.json
 8724b2b918c5676f1e471c309b8320e9de7be831 data/forbiddentinkers/forbiddentinkers/divine_slots/expedient.json
 49c224b4c109b120977845521995831d855fef73 data/forbiddentinkers/forbiddentinkers/divine_slots/experienced.json
+03453ea318c88ca9bdaf1cb6c221c0c169bba636 data/forbiddentinkers/forbiddentinkers/divine_slots/feather_fall.json
 ed425842db3870192db2842602dec7e2c95ef59b data/forbiddentinkers/forbiddentinkers/divine_slots/feather_falling.json
 efb2dd221c42e6610657591beb7e1effe5455735 data/forbiddentinkers/forbiddentinkers/divine_slots/fiery.json
 31a147827fc06ae2719f8f8f10d7d44eea5d9f24 data/forbiddentinkers/forbiddentinkers/divine_slots/fire_upgrade.json

@@ -226,6 +226,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
     @SuppressWarnings("unused")
     public static class Builder implements RecipeBuilder {
         public final Item result;
+        private final int resultCount;
         public final List<ChampiumForgeIngredient> ingredients;
         @Nullable
         public Integer count;
@@ -237,9 +238,14 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
         public Integer weight;
         public boolean reloadAfterCraft = false;
 
-        public Builder(ItemLike result) {
+        public Builder(ItemLike result, int count) {
             this.result = result.asItem();
+            this.resultCount = count;
             this.ingredients = new ArrayList<>();
+        }
+
+        public Builder(ItemLike result) {
+            this(result, 1);
         }
 
         public Builder addIngredient(ChampiumForgeIngredient ingredient) {
@@ -309,6 +315,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             consumer.accept(new Builder.Result(
                     id,
                     result,
+                    resultCount,
                     ingredients,
                     count,
                     maxUses,
@@ -320,6 +327,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
         public static class Result implements FinishedRecipe {
             private final ResourceLocation id;
             private final Item result;
+            private final int resultCount;
             public final List<ChampiumForgeIngredient> ingredients;
             @Nullable
             public final Integer count;
@@ -334,6 +342,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
             public Result(
                     ResourceLocation id,
                     Item result,
+                    int resultCount,
                     List<ChampiumForgeIngredient> ingredients,
                     @Nullable Integer count,
                     @Nullable IntProvider maxUses,
@@ -342,6 +351,7 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
                     boolean reloadAfterCraft) {
                 this.id = id;
                 this.result = result;
+                this.resultCount = resultCount;
                 this.ingredients = ingredients;
                 this.count = count;
                 this.maxUses = maxUses;
@@ -373,6 +383,9 @@ public class ChampiumForgeRecipe implements Recipe<ChampiumForgeBlockEntity> {
 
                 JsonObject resultJson = new JsonObject();
                 resultJson.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(result)).toString());
+                if (resultCount > 1) {
+                    resultJson.addProperty("count", resultCount);
+                }
                 json.add(RESULT_KEY, resultJson);
 
                 if (weight != null) {

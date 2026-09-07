@@ -4,6 +4,7 @@ import derekahedron.forbiddentinkers.ForbiddenTinkers;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
+@SuppressWarnings("deprecation")
 public class FTModifiers {
     public static final ModifierDeferredRegister MODIFIERS =
             ModifierDeferredRegister.create(ForbiddenTinkers.MOD_ID);

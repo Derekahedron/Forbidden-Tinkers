@@ -20,6 +20,7 @@ import java.util.List;
 public class DisposingModifier extends NoLevelsModifier implements ProcessLootModifierHook, LivingDropsModifierHook {
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,

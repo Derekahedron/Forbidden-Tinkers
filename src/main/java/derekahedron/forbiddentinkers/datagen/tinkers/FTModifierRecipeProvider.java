@@ -93,7 +93,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
 
         // Upgrades
         createOverloadRecipe(consumer, ModifierIds.experienced);
-        createOverloadRecipe(consumer, TinkerModifiers.magnetic.getId());
+        createOverloadRecipe(consumer, ModifierIds.magnetic);
         createOverloadRecipe(consumer, ModifierIds.overforced);
         createOverloadRecipe(consumer, ModifierIds.smelting);
         createOverloadRecipe(consumer, ModifierIds.tank);
@@ -101,11 +101,11 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, ModifierIds.fiery);
         createOverloadRecipe(consumer, ModifierIds.freezing);
         createOverloadRecipe(consumer, ModifierIds.lure);
-        createOverloadRecipe(consumer, TinkerModifiers.knockback.getId());
-        createOverloadRecipe(consumer, TinkerModifiers.necrotic.getId());
-        createOverloadRecipe(consumer, TinkerModifiers.padded.getId());
+        createOverloadRecipe(consumer, ModifierIds.knockback);
+        createOverloadRecipe(consumer, ModifierIds.necrotic);
+        createOverloadRecipe(consumer, ModifierIds.padded);
         createOverloadRecipe(consumer, TinkerModifiers.severing.getId());
-        createOverloadRecipe(consumer, TinkerModifiers.sweeping.getId());
+        createOverloadRecipe(consumer, ModifierIds.sweeping);
         createOverloadRecipe(consumer, ModifierIds.antiaquatic);
         createOverloadRecipe(consumer, ModifierIds.baneOfSssss);
         createOverloadRecipe(consumer, ModifierIds.cooling);
@@ -135,19 +135,20 @@ public class FTModifierRecipeProvider extends RecipeProvider {
         createOverloadRecipe(consumer, TinkerModifiers.shieldStrap.getId());
         createOverloadRecipe(consumer, ModifierIds.speedy);
         createOverloadRecipe(consumer, ModifierIds.stepUp);
-        createOverloadRecipe(consumer, TinkerModifiers.soulspeed.getId());
+        createOverloadRecipe(consumer, ModifierIds.soulspeed);
         createOverloadRecipe(consumer, FTModifierIds.HEART_DROPPING);
         createOverloadRecipe(consumer, new ModifierId(new ResourceLocation("constructs_casting:expedient")), false);
         // Abilities
-        createOverloadRecipe(consumer, TinkerModifiers.expanded.getId());
+        createOverloadRecipe(consumer, ModifierIds.expanded);
         createOverloadRecipe(consumer, ModifierIds.luck);
-        createOverloadRecipe(consumer, TinkerModifiers.slurping.getId());
-        createOverloadRecipe(consumer, TinkerModifiers.spitting.getId());
-        createOverloadRecipe(consumer, TinkerModifiers.splashing.getId());
+        createOverloadRecipe(consumer, ModifierIds.slurping);
+        createOverloadRecipe(consumer, ModifierIds.spitting);
+        createOverloadRecipe(consumer, ModifierIds.splashing);
         createOverloadRecipe(consumer, ModifierIds.spilling);
         createOverloadRecipe(consumer, ModifierIds.bulkQuiver);
         createOverloadRecipe(consumer, ModifierIds.channeling);
-        createOverloadRecipe(consumer, TinkerModifiers.multishot.getId());
+        createOverloadRecipe(consumer, ModifierIds.multishot);
+        createOverloadRecipe(consumer, ModifierIds.sliver);
         createOverloadRecipe(consumer, ModifierIds.returning);
         createOverloadRecipe(consumer, TinkerModifiers.bursting.getId());
         createOverloadRecipe(consumer, TinkerModifiers.wetting.getId());
@@ -198,8 +199,10 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.queensSlime,
                 MaterialIds.hepatizon,
                 MaterialIds.manyullyn,
+                MaterialIds.nicrosil,
                 MaterialIds.blazingBone,
                 MaterialIds.knightmetal,
+                MaterialIds.knightslime,
                 MTMaterialIds.DESOLUM,
                 MTMaterialIds.BYZANTIUM_NEODYMIUM,
                 MTMaterialIds.TECTELLUS,
@@ -214,8 +217,10 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.skyslimeVine,
                 MaterialIds.twistingVine,
                 MaterialIds.weepingVine,
+                MaterialIds.cheese,
                 MaterialIds.darkthread,
                 MaterialIds.ancientHide,
+                MaterialIds.jeweledHide,
                 MaterialIds.enderslimeVine,
                 // Ranged
                 MaterialIds.string,
@@ -228,6 +233,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MTMaterialIds.SHADOW_SILK,
                 MaterialIds.darkthread,
                 MaterialIds.ancientHide,
+                MaterialIds.jeweledHide,
                 MaterialIds.enderslimeVine,
                 MaterialIds.roseGold,
                 MaterialIds.wood,
@@ -251,8 +257,10 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.queensSlime,
                 MaterialIds.hepatizon,
                 MaterialIds.manyullyn,
+                MaterialIds.nicrosil,
                 MaterialIds.blazingBone,
                 MaterialIds.knightmetal,
+                MaterialIds.knightslime,
                 MTMaterialIds.DESOLUM,
                 MTMaterialIds.BYZANTIUM_NEODYMIUM,
                 MTMaterialIds.TECTELLUS,
@@ -270,6 +278,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.glass,
                 MaterialIds.gunpowder,
                 MaterialIds.prismarine,
+                MaterialIds.redstone,
                 MaterialIds.skyslime,
                 MaterialIds.ice,
                 MaterialIds.glowstone,
@@ -303,6 +312,7 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.slimeskin,
                 MaterialIds.ichorskin,
                 MaterialIds.ancientHide,
+                MaterialIds.jeweledHide,
                 MaterialIds.enderslimeVine,
                 MaterialIds.vine,
                 MaterialIds.twistingVine,
@@ -327,7 +337,9 @@ public class FTModifierRecipeProvider extends RecipeProvider {
                 MaterialIds.queensSlime,
                 MaterialIds.hepatizon,
                 MaterialIds.manyullyn,
+                MaterialIds.nicrosil,
                 MaterialIds.knightmetal,
+                MaterialIds.knightslime,
                 MTMaterialIds.DESOLUM,
                 MTMaterialIds.BYZANTIUM_NEODYMIUM,
                 MTMaterialIds.TECTELLUS,

@@ -18,8 +18,6 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.inputs.IJeiInputHandler;
 import mezz.jei.api.gui.inputs.IJeiUserInput;
 import mezz.jei.api.gui.inputs.RecipeSlotUnderMouse;
-import mezz.jei.api.gui.placement.HorizontalAlignment;
-import mezz.jei.api.gui.placement.VerticalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.gui.widgets.ISlottedRecipeWidget;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -186,11 +184,13 @@ public class ChampiumForgeCategory implements IRecipeCategory<ChampiumForgeRecip
 
         Component component = Component.translatable(RECIPE_CHANCE_LABEL, chanceString);
         Component tooltipComponent = Component.translatable(RECIPE_CHANCE_TOOLTIP, chanceString);
-        builder.addWidget(new TooltipTextWidget(component, tooltipComponent)
-                .setPosition(WIDTH, HEIGHT)
-                .setColor(TEXT_COLOR)
-                .setTextAlignment(VerticalAlignment.BOTTOM)
-                .setTextAlignment(HorizontalAlignment.RIGHT));
+        Font font = Minecraft.getInstance().font;
+        int width = font.width(component);
+        int height = font.lineHeight;
+        builder.addText(component, width, height)
+                .setTooltip(tooltipComponent)
+                .setPosition(WIDTH - width, HEIGHT - height)
+                .setColor(TEXT_COLOR);
     }
 
     public void addMaxUsesWidget(IRecipeExtrasBuilder builder, ChampiumForgeRecipe recipe) {
@@ -212,10 +212,13 @@ public class ChampiumForgeCategory implements IRecipeCategory<ChampiumForgeRecip
             tooltipComponent = Component.translatable(USES_RANGE_TOOLTIP, min, max);
         }
 
-        builder.addWidget(new TooltipTextWidget(component, tooltipComponent)
-                .setPosition((WIDTH + RESULT_SLOT_SIZE) / 2 + PADDING, HEIGHT - (RESULT_SLOT_SIZE) / 2)
-                .setColor(TEXT_COLOR)
-                .setTextAlignment(VerticalAlignment.CENTER));
+        Font font = Minecraft.getInstance().font;
+        int width = font.width(component);
+        int height = font.lineHeight;
+        builder.addText(component, width, height)
+                .setPosition((WIDTH + RESULT_SLOT_SIZE) / 2 + PADDING, HEIGHT - (RESULT_SLOT_SIZE + height) / 2)
+                .setTooltip(tooltipComponent)
+                .setColor(TEXT_COLOR);
     }
 
     private static class RandomizedSlotWidget implements ISlottedRecipeWidget, IJeiInputHandler {
@@ -297,7 +300,7 @@ public class ChampiumForgeCategory implements IRecipeCategory<ChampiumForgeRecip
 
         @Override
         public void drawWidget(GuiGraphics guiGraphics, double mouseX, double mouseY) {
-            slot.draw(guiGraphics);
+            slot.draw(guiGraphics, isMouseOver(mouseX, mouseY));
 
             guiGraphics.pose().pushPose();
             guiGraphics.pose().translate(0.0F, 0.0F, 200.0F);

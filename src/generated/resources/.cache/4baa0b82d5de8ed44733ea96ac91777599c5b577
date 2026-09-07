@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-31T03:13:13.9379876	Forbidden Tinkers Modifier Recipes
+// 1.20.1	2026-09-07T17:39:30.0879026	Forbidden Tinkers Modifier Recipes
 2d9c86d509a0e99ddd606a2d8ed65442b9b10d1f data/forbiddentinkers/recipes/tools/modifiers/ability/wormhole.json
 8ed045617a8bf693929e854b4d16f1254b825e4b data/forbiddentinkers/recipes/tools/modifiers/augmentation/blue_skies_tcon/aquite.json
 d6e4302db4b5047405cbae7564651534fb89b7dc data/forbiddentinkers/recipes/tools/modifiers/augmentation/blue_skies_tcon/charoite.json
@@ -34,6 +34,7 @@ e8717dddc878221b016a534b331d9c50858e0b13 data/forbiddentinkers/recipes/tools/mod
 e097b45f4b7f7074cb9c94d5713b781de92b2131 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/bone.json
 e13cd8f29916e7c47579d5584dff6e007ba9ef44 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/bronze.json
 0f3fc401c13e422f8d57bf35b3b68ed00dd85f5a data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/cactus.json
+464ff3ed5c8ecd4319332eeed000e99c5836ec94 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/cheese.json
 895994148ef8b2ac061dbbc698dd31d039d03fe2 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/chorus.json
 f4411250e4344d76505f0c8e85f11e59735d50a7 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/cinderslime.json
 cead0c65b8c757fe78f53f53d30b0aab2ec6017b data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/cobalt.json
@@ -61,8 +62,10 @@ eac243c38e134c61fa458214ecaa606d68ae4e5b data/forbiddentinkers/recipes/tools/mod
 9763b9cd41364658126171f0d45de55ad90d846c data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/invar.json
 bbec836307fb17129e5120f8beb7abb77530a2e1 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/iron.json
 bc561084e72c35ef35c23d07086878ef41be3baa data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/ironwood.json
+c621140fc5cd592fb516cc36dbe27fc6ac73a5d6 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/jeweled_hide.json
 f0371df4200369cdeaffca2957638da39f315654 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/knightly.json
 3ba6df941faa22f603eb7cc2dbb376fdec96a985 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/knightmetal.json
+0376ab98957d69441db4062796cee8f9b53e954e data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/knightslime.json
 79fe586c07c2ecd25a7d31e16b00d9b6f367651f data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/lead.json
 27f675865f061cf433d0b4a5605ac7182684efe0 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/leather.json
 7454fd39869ac5b538f0edb3c56ebfe04eb6b89f data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/leaves.json
@@ -72,6 +75,7 @@ ef2b4d208629d54437bf93c97c03cccbe5c6bfb1 data/forbiddentinkers/recipes/tools/mod
 4c654bc0acf680f83439d21fb4fcea941edd226c data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/nahuatl.json
 1191b4e1e68ab7dab8e691c436a77d41fffa6f73 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/necronium.json
 9a165618d29104084c93816293c5efe08cf0e311 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/necrotic_bone.json
+93d44dc0867a54a01f633d9455d1d8dcce1c3a97 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/nicrosil.json
 8ed94a57ff10ca7732e7661ea80d04e759c835ac data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/obsidian.json
 381bc2cd4d145096cd9ebcc7d682cc746d30957d data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/osmium.json
 68f907163247afd3e3bbd18c99e373bcd4842282 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/paper.json
@@ -81,6 +85,7 @@ ae5db328c5d3a544aa7dad5094aaf9fcbc18b4d7 data/forbiddentinkers/recipes/tools/mod
 3e5c9c04d7df34888320ac6f021fa246de0f1748 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/prismarine.json
 8c80cf82e5c161cd44d6e17a8c1aff8fbefc633e data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/quartz.json
 099920fdde2fe3ec30debbd0b0b56516b5ac7ef7 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/queens_slime.json
+a8f1d0a70e40163364c6b39a302e00869fde2455 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/redstone.json
 1e4d46f173039f801b27284b14fecb0a2209ff70 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/rock.json
 8d359d1c17aad09e4c1a8513d13ee5d9e2f1f4bb data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/rose_gold.json
 0a5dbc28e07036cbf7d72fa8e8ee0b1408ffeea2 data/forbiddentinkers/recipes/tools/modifiers/augmentation/tconstruct/scorched_stone.json
@@ -165,6 +170,7 @@ d4112fc820e175a1caaaee95126b47e953263610 data/forbiddentinkers/recipes/tools/mod
 ba443b361dc3c0aa02466c8be9f4576476ab1709 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/sharpness.json
 4d8f2aa0497dd687b0dc0801802c3e89cbb9bd4a data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/shield_strap.json
 09650c3970ecd139209a4e65ca965377a12307e5 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/sleeves.json
+5aee6e487ee892a07b09bfe99dee64ed7a3d47e9 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/sliver.json
 3cd7805010326065a95cbee31d68a2601fce9d61 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/slurping.json
 045ff6d357cb8ef18eccbd6129aaef3269f3bbf5 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/smelting.json
 0e72fbab26c2557da6c460665f91332716cb9bb2 data/forbiddentinkers/recipes/tools/modifiers/overloaded/tconstruct/smite.json

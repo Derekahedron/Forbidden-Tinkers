@@ -55,6 +55,8 @@ public class OverloadModifierRecipe extends SwappableModifierRecipe {
                     SLOTS_FIELD,
                     ALLOW_CRYSTAL_FIELD,
                     OverloadModifierRecipe::new);
+
+    @SuppressWarnings("deprecation")
     public static final VariantFormatter MODIFIER_VARIANT_FORMATER =
             VariantFormatter.LOADER.register(FTUtil.location("modifier"), (modifier, variant) ->
                     Component.translatable(Util.makeTranslationKey("modifier", Objects.requireNonNullElse(ModifierId.tryParse(variant), ModifierManager.EMPTY))));

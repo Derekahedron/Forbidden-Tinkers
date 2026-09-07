@@ -14,6 +14,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolDataNBT;
 public class DivineModifier extends NoLevelsModifier implements VolatileDataModifierHook {
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,

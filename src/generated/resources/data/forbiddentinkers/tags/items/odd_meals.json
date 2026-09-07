@@ -1,0 +1,700 @@
+{
+  "values": [
+    {
+      "id": "alexsmobsdelight:acacia_blossom_tentacle_salad",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:alexs_rice_roll_medley",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:anaconda_catfish_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:anaconda_congee",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:ant_cookie",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:ants_climbing_a_tree",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:true_ants_climbing_a_tree",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:banana_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:banana_roll_slice",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:banana_slug_slime_custard",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:banana_slug_slime_popsicle",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:beggars_emu",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:plate_of_beggars_emu",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:big_mac",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bison_tartare",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_honey_glazed_bear_meat_with_salmon",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_moose_sausage_with_salmon",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_stuffed_crocodile",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_stuffed_crocodile_head",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_stuffed_crocodile_leg",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_stuffed_crocodile_tail",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_stuffed_grilled_anaconda",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:bowl_of_wild_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:braised_alligator_snapping_turtle",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:braised_kangaroo_meatballs",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:braised_tarantula_hawk_larva",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:canned_bear_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:catfish_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:catfish_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cave_centipede_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cave_centipede_soup_cup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:centipede_leg_with_carrot_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cheese_fried_emu_leg",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cheese_mashed_potatoes_with_anaconda",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cheese_seal_burger",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cheese_seal_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:coastal_kiviak",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cockroach_protein_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cockroach_protein_soup_cup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cod_and_turtle_meat_congee",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cooked_hummingbird_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cooked_maggot_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:crispy_cockroach_wing",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:crispy_tarantula_hawk_wing",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:crocodile_barbecue_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:crocodile_rice",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:crocodile_stewed_with_catfish",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:cthulhus_breakfast",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:detoxify_jelly",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:detoxify_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:detoxify_soup_cup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:devils_hole_pupfish_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:devils_hole_pupfish_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:dimensional_food",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:dried_kelp_rolled_tarantula_hawk_larva",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:dried_kelp_tentacles_sandwich",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:dried_shredded_squid",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:emu_custard",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:flying_fish_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:flying_fish_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_ants",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_centipede_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_seagull_with_fries",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_tarantula_hawk",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:serve_of_fried_tarantula_hawk",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_tentacles_stick",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:fried_tusklin_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:frontier_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:gazing_into_the_abyss",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:gongylidia_cream_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:gongylidia_sandwich",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:gravy_kangaroo_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:grilled_rattle_tail",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:grilled_turtle_and_anaconda",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:handtorn_emu_meat_with_rice",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:honey_glazed_bear_meat_with_salmon",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:honey_glazed_moose_ribs",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:kangaroo_meat_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:katsudon",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:kiviak",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:polar_kiviak",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:lobster_head_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:lobster_pasta",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:lobster_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:lobster_roll_medley",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:maggot_cream_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:maggot_salad",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:pickled_maggots",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mantis_shrimp_tempura",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mimicandy",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:moose_pie",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:slice_of_moose_pie",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:moose_sausage_with_salmon",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:moose_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mosquito_repellent_stew_cup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mudskipper_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mudskipper_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:mushrooms_braised_with_centipede",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:plate_of_mushrooms_braised_with_centipede",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:orcas_leap_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:pot_of_hummingbird_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:pot_of_whale_meat_stewed_with_pork",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:rainbow_custard",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:rainbow_popsicle",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:rattle_tail_congee",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:roast_seagull",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:savanna_fried_rice",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:sea_bear_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:seagull_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:seal_sandwich",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:seal_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:shrimp_fried_egg",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:shrimp_poke_bowl",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:smoked_tusklin_sausage",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:slice_of_smoked_tusklin_sausage",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:smoked_tusklin_sandwich",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:snake_skin_salad",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:sopa_de_macaco_cup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:spit_custard",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:spit_popsicle",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:steamed_stuffed_crocodile",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:stuffed_grilled_anaconda",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:stuffed_tarantula_hawk",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:surflygfisk",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:surflygfisk_open",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:swamp_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:takoyaki",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tarantula_hawk_sashimi",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tempura",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tentacle_medley",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tentacle_sandwich",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tiger_cake_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:triops_eggs_roll",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:turtle_jelly",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:turtle_meat_fried_rice",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:turtle_soup",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:tusklin_hot_dog",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:whale_burger",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:whale_meat_stewed_with_pork",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:whale_meat_with_tentacles",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:whale_skin_stew",
+      "required": false
+    },
+    {
+      "id": "alexsmobsdelight:wild_stew",
+      "required": false
+    },
+    {
+      "id": "endersdelight:uncanny_cookies",
+      "required": false
+    },
+    {
+      "id": "endersdelight:strange_eclair",
+      "required": false
+    },
+    {
+      "id": "endersdelight:chorus_pie_slice",
+      "required": false
+    },
+    {
+      "id": "endersdelight:crawling_sandwich",
+      "required": false
+    },
+    {
+      "id": "endersdelight:crispy_skewer",
+      "required": false
+    },
+    {
+      "id": "endersdelight:twisted_cereal",
+      "required": false
+    },
+    {
+      "id": "endersdelight:endermite_stew",
+      "required": false
+    },
+    {
+      "id": "endersdelight:pearl_pasta",
+      "required": false
+    },
+    {
+      "id": "endersdelight:ender_paella",
+      "required": false
+    },
+    {
+      "id": "endersdelight:chorus_stew",
+      "required": false
+    },
+    {
+      "id": "endersdelight:amberveil_stew",
+      "required": false
+    },
+    {
+      "id": "endersdelight:amberveiled_curry",
+      "required": false
+    },
+    {
+      "id": "endersdelight:steak_fries",
+      "required": false
+    },
+    {
+      "id": "endersdelight:veil_of_flames_risotto",
+      "required": false
+    },
+    {
+      "id": "endersdelight:chicken_curry",
+      "required": false
+    },
+    {
+      "id": "endersdelight:stuffed_shulker_bowl",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:strider_moss_stew",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:plate_of_stuffed_hoglin_snout",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:plate_of_stuffed_hoglin_ham",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:plate_of_stuffed_hoglin_roast",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:nether_skewer",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:baked_tentacle_on_a_stick",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:bowl_of_guardian_soup",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:braised_sea_pickle",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:cabbage_wrapped_elder_guardian",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:cooked_stuffed_cod",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:elder_guardian_roll",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:fugu_roll",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:guardian_soup",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:honey_fried_kelp",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:seagrass_salad",
+      "required": false
+    },
+    {
+      "id": "oceansdelight:squid_rings",
+      "required": false
+    }
+  ]
+}

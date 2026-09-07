@@ -24,6 +24,7 @@ import java.util.List;
 public class WormholeModifier extends NoLevelsModifier implements ProcessLootModifierHook, LivingDropsModifierHook {
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,

@@ -16,6 +16,7 @@ public class HeartDroppingModifier extends Modifier implements LivingDropsModifi
     public static final float CHANCE_PER_LEVEL = 0.1F;
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,
