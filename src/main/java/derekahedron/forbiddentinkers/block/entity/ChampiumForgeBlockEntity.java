@@ -235,6 +235,7 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
 
                         if (uses > 0) {
                             entity.uses += uses;
+                            entity.timesUsed += uses;
                             entity.count -= entity.recipe.count * uses;
                             recipeResult.setCount(recipeResult.getCount() * uses);
                             if (entity.getResultStack().isEmpty()) {
@@ -267,7 +268,6 @@ public class ChampiumForgeBlockEntity extends BaseContainerBlockEntity implement
                         entity.cooldown = COOLDOWN;
                         entity.burnCooldown = BURN_COOLDOWN;
                         entity.count++;
-                        entity.timesUsed++;
 
                         changed = true;
                     }

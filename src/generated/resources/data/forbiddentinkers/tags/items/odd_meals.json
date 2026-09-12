@@ -121,10 +121,6 @@
       "required": false
     },
     {
-      "id": "alexsmobsdelight:cave_centipede_soup_cup",
-      "required": false
-    },
-    {
       "id": "alexsmobsdelight:centipede_leg_with_carrot_stick",
       "required": false
     },
@@ -150,10 +146,6 @@
     },
     {
       "id": "alexsmobsdelight:cockroach_protein_soup",
-      "required": false
-    },
-    {
-      "id": "alexsmobsdelight:cockroach_protein_soup_cup",
       "required": false
     },
     {
@@ -198,10 +190,6 @@
     },
     {
       "id": "alexsmobsdelight:detoxify_soup",
-      "required": false
-    },
-    {
-      "id": "alexsmobsdelight:detoxify_soup_cup",
       "required": false
     },
     {
@@ -377,10 +365,6 @@
       "required": false
     },
     {
-      "id": "alexsmobsdelight:mosquito_repellent_stew_cup",
-      "required": false
-    },
-    {
       "id": "alexsmobsdelight:mudskipper_roll",
       "required": false
     },
@@ -466,10 +450,6 @@
     },
     {
       "id": "alexsmobsdelight:snake_skin_salad",
-      "required": false
-    },
-    {
-      "id": "alexsmobsdelight:sopa_de_macaco_cup",
       "required": false
     },
     {

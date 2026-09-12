@@ -123,11 +123,11 @@ public class AugmentationModifierRecipe extends SwappableModifierRecipe {
 
     @Override
     public List<ItemStack> getDisplayItems(int slot) {
-        List<ItemStack> stacks = super.getDisplayItems(slot);
-
-        stacks.removeIf(stack ->
-                stack.getItem() instanceof ToolPartItem toolPartItem
-                        && !toolPartItem.canUseMaterial(materialId.getId()));
+        List<ItemStack> stacks = super.getDisplayItems(slot).stream()
+                .filter(stack ->
+                        !(stack.getItem() instanceof ToolPartItem toolPartItem
+                                && !toolPartItem.canUseMaterial(materialId.getId())))
+                .toList();
 
         stacks.forEach(stack -> {
             if (stack.getItem() instanceof MaterialItem) {

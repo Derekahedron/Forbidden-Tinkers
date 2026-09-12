@@ -1,10 +1,10 @@
-// 1.20.1	2026-09-07T17:58:02.7496241	Forbidden Tinkers Item Tags
+// 1.20.1	2026-09-12T13:29:40.4156259	Forbidden Tinkers Item Tags
 35b75ecf961634e6c0358f31d9f2ba41dcae6c10 data/forbiddentinkers/tags/items/augmentation_part_blacklist.json
 844c926a1ae076052b0f06939d9d9e0b4c543ea7 data/forbiddentinkers/tags/items/bedrock_bricks.json
 291ca57630d5d028391838397c16c05cc3cccc24 data/forbiddentinkers/tags/items/disposable.json
 190b01a4716bba322a72dba6d08b2e00ada2bffe data/forbiddentinkers/tags/items/has_action.json
 d38ca4429f9b4e97d9bf26b1e39af299f3f25f0c data/forbiddentinkers/tags/items/meals.json
-8232628e7a8f070e0d26516b8717126d99242410 data/forbiddentinkers/tags/items/odd_meals.json
+a48a45ca8e45014224770a885914001aae16a070 data/forbiddentinkers/tags/items/odd_meals.json
 8e7b8c9ec5feb21cb7678fce969522bf8734c92e data/forge/tags/items/gems/tinkers_diamond.json
 afcf39fe18a5df31abdbfa97368fd53286836772 data/forge/tags/items/ingots.json
 159d519625c1a5ab03a2f36433dd1702b4178c2f data/forge/tags/items/ingots/champium.json
